@@ -11,7 +11,6 @@
 - 局部变量: lowerCamelCase
 - `@Override`: 合法则标注
 - 变量声明: 不允许组合声明
-- 代码格式化: IDEA格式
 - `if, else, for, do, while`: 必须加`{}`
 - 注释: 必须包含作者
 
