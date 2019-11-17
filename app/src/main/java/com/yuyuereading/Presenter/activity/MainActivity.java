@@ -41,7 +41,6 @@ import com.ycl.tabview.library.TabViewChild;
 import com.yuyuereading.Model.bean.BookInfo;
 import com.yuyuereading.Model.bean._User;
 import com.yuyuereading.Model.database.OperationBookInfo;
-import com.yuyuereading.Presenter.fragment.HomeFragment;
 import com.yuyuereading.Presenter.fragment.ReadingFragment;
 import com.yuyuereading.Presenter.fragment.SeenFragment;
 import com.yuyuereading.Presenter.fragment.WantFragment;
@@ -189,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements
         drawer = findViewById(R.id.drawer_layout);
         //为底部导航栏添加数据源
         List<TabViewChild> tabViewChildList=new ArrayList<>();
-        TabViewChild tabViewChild00=new TabViewChild(R.drawable.home,R.drawable.home,"首页", HomeFragment.newInstance("首页","1"));
+        TabViewChild tabViewChild00=new TabViewChild(R.drawable.home,R.drawable.home,"首页", WantFragment.newInstance("首页","1"));
         TabViewChild tabViewChild01=new TabViewChild(R.drawable.wanting,R.drawable.wanting,"想读", WantFragment.newInstance("想读","1"));
         TabViewChild tabViewChild02=new TabViewChild(R.drawable.reading,R.drawable.reading,"在读",  ReadingFragment.newInstance("在读","1"));
         TabViewChild tabViewChild03=new TabViewChild(R.drawable.seen,R.drawable.seen,"已读",  SeenFragment.newInstance("已读","1"));
