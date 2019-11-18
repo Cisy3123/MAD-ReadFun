@@ -192,10 +192,12 @@ public class MainActivity extends AppCompatActivity implements
         TabViewChild tabViewChild01=new TabViewChild(R.drawable.wanting,R.drawable.wanting,"想读", WantFragment.newInstance("想读","1"));
         TabViewChild tabViewChild02=new TabViewChild(R.drawable.reading,R.drawable.reading,"在读",  ReadingFragment.newInstance("在读","1"));
         TabViewChild tabViewChild03=new TabViewChild(R.drawable.seen,R.drawable.seen,"已读",  SeenFragment.newInstance("已读","1"));
+        TabViewChild tabViewChild04=new TabViewChild(R.drawable.mine,R.drawable.mine,"我的", UserFragment.newInstance("我的","1"));
         tabViewChildList.add(tabViewChild00);
         tabViewChildList.add(tabViewChild01);
         tabViewChildList.add(tabViewChild02);
         tabViewChildList.add(tabViewChild03);
+        tabViewChildList.add(tabViewChild04);
         tabView = findViewById(R.id.tabView);
         tabView.setTabViewChild(tabViewChildList,getSupportFragmentManager());
         searchView = findViewById(R.id.search_view);
