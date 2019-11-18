@@ -1,23 +1,14 @@
 package com.yuyuereading.Presenter.fragment;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-import com.yuyuereading.Model.bean.BookInfo;
-import com.yuyuereading.Presenter.adapter.BookListAdapter;
 import com.yuyuereading.R;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 
 /**
@@ -29,42 +20,25 @@ import java.util.Random;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+    HomeFragment homeFragment;
+    Button homeReturn;
 
-    private SwipeRefreshLayout refresh;
+    private String mParam1;
+    private String mParam2;
 
-    private RecyclerView recyclerView;
-
-    private BookInfo[] bookInfos = {new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社"),
-            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社"),
-            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社"),
-            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社")};
-
-    private List<BookInfo> bookInfoList = new ArrayList<>();
-
-    private BookListAdapter adapter;
-
-    LinearLayoutManager mLayoutManager;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private OnFragmentInteractionListener mListener;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
 
-    public HomeFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ReadingFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -75,101 +49,10 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            String mParam1 = getArguments().getString(ARG_PARAM1);
-            String mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    //获取图书信息
-    private void initList() {
-        bookInfoList.clear();
-        for (int i = 0; i < 50;i++) {
-            Random random = new Random();
-            int index = random.nextInt(bookInfos.length);
-            bookInfoList.add(bookInfos[index]);
-        }
-    }
-
-    //adapter中添加数据
-    private void addDate() {
-        //Toast.makeText(getContext(), "请加载数据", Toast.LENGTH_SHORT).show();
-        adapter = new BookListAdapter(bookInfoList,"reading");
-        recyclerView.setAdapter(adapter);
-
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_reading, container, false);
-        recyclerView = view.findViewById(R.id.recycler_reading);
-        refresh = view.findViewById(R.id.refresh_reading);
-        //刷新控件颜色设置
-        refresh.setColorSchemeResources(android.R.color.holo_blue_light,
-                android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
-        //刷新列表
-        refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refreshList();
-            }
-        });
-        mLayoutManager = new LinearLayoutManager(this.getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
-        initList();
-        addDate();
+                             Bundle savedInstanceState){
+        View view = inflater.inflate(R.layout.activity_home, container, false);
         return view;
-    }
-
-    //刷新事件
-    private void refreshList() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        initList();
-                        addDate();
-                        adapter.notifyDataSetChanged();
-                        refresh.setRefreshing(false);
-                    }
-                });
-            }
-        }).start();
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
     }
 
     /**

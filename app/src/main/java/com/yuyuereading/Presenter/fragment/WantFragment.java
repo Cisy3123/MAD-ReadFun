@@ -92,7 +92,7 @@ public class WantFragment extends Fragment {
     //获取图书信息
     private void initList() {
         bookInfoList.clear();
-        for (int i = 0; i < 50;i++) {
+        for (int i = 0; i < 10;i++) {
             Random random = new Random();
             int index = random.nextInt(bookInfos.length);
             bookInfoList.add(bookInfos[index]);

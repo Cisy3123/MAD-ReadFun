@@ -34,10 +34,10 @@ public class ReadingFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    private BookInfo[] bookInfos = {new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社"),
-            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社"),
-            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社"),
-            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社")};
+    private BookInfo[] bookInfos = {new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2019-11-17","8.1","严歌苓","人民文学出版社"),
+            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2019-11-17","8.1","严歌苓","人民文学出版社"),
+            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2019-11-17","8.1","严歌苓","人民文学出版社"),
+            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2019-11-17","8.1","严歌苓","人民文学出版社")};
 
     private List<BookInfo> bookInfoList = new ArrayList<>();
 
@@ -86,7 +86,7 @@ public class ReadingFragment extends Fragment {
     //获取图书信息
     private void initList() {
         bookInfoList.clear();
-        for (int i = 0; i < 50;i++) {
+        for (int i = 0; i < 10;i++) {
             Random random = new Random();
             int index = random.nextInt(bookInfos.length);
             bookInfoList.add(bookInfos[index]);
