@@ -2,6 +2,7 @@ package com.yuyuereading.Presenter.activity;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,7 @@ import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.yuyuereading.Presenter.utils.LocationFromGaode;
+import com.yuyuereading.Presenter.utils.ShakeListener;
 import com.yuyuereading.R;
 
 import java.util.ArrayList;
@@ -39,11 +41,13 @@ public class SeenActivity extends AppCompatActivity {
     private  String address;
     //定义一个获取定位消息的类
     LocationFromGaode getAddress;
+    private ShakeListener mShakeListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seen);
         findView();
+        initShake();
         onClick();
     }
     private void findView() {
@@ -157,5 +161,17 @@ public class SeenActivity extends AppCompatActivity {
     public void onBackPressed()
     {
         finish();
+    }
+
+    private void initShake() {
+        mShakeListener=new ShakeListener(this);
+        mShakeListener.setOnShakeListener(new ShakeListener.OnShakeListenerCallBack() {
+            @Override
+            public void onShake() {
+                Intent intent = new Intent(context, ShakeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

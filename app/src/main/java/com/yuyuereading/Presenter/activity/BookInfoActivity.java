@@ -19,6 +19,7 @@ import com.willy.ratingbar.ScaleRatingBar;
 import com.yuyuereading.Model.bean.BookComment;
 import com.yuyuereading.Model.bean.BookInfo;
 import com.yuyuereading.Presenter.adapter.CommentListAdapter;
+import com.yuyuereading.Presenter.utils.ShakeListener;
 import com.yuyuereading.R;
 
 import java.util.ArrayList;
@@ -54,6 +55,8 @@ public class BookInfoActivity extends AppCompatActivity {
 
     LinearLayoutManager mLayoutManager;
 
+    private ShakeListener mShakeListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,7 @@ public class BookInfoActivity extends AppCompatActivity {
         //获取评论信息
         initList();
         addDate();
+        initShake();
     }
 
     @SuppressLint("SetTextI18n")
@@ -181,6 +185,18 @@ public class BookInfoActivity extends AppCompatActivity {
 
     public void onBackPressed() {
         finish();
+    }
+
+    private void initShake() {
+        mShakeListener=new ShakeListener(this);
+        mShakeListener.setOnShakeListener(new ShakeListener.OnShakeListenerCallBack() {
+            @Override
+            public void onShake() {
+                Intent intent = new Intent(mContext, ShakeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 }
