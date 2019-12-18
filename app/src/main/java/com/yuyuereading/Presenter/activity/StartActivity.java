@@ -11,7 +11,7 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 
-import com.yuyuereading.Presenter.utils.PermissionsChecker;
+import com.yuyuereading.Presenter.PermissionsChecker;
 
 import com.yuyuereading.R;
 import cn.bmob.v3.Bmob;
@@ -36,8 +36,8 @@ public class StartActivity extends AppCompatActivity {
         Bmob.initialize(this, "8b2890f3afdee1e695d1024a61bedc38");
 
         //加载启动页面
-        final View start_view = View.inflate(this, R.layout.activity_start, null);
-        setContentView(start_view);
+        final View view = View.inflate(this, R.layout.activity_start, null);
+        setContentView(view);
         mPermissionsChecker = new PermissionsChecker(this);
         /*沉浸式标题栏*/
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -45,12 +45,11 @@ public class StartActivity extends AppCompatActivity {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
 
-        AlphaAnimation aa = new AlphaAnimation(0.3f,1.0f);
 
+        AlphaAnimation aa = new AlphaAnimation(0.3f,1.0f);
         //设置持续时间
         aa.setDuration(2000);
-
-        start_view.startAnimation(aa);
+        view.startAnimation(aa);
         aa.setAnimationListener(new Animation.AnimationListener()
         {
             //动画页面结束后要干嘛
@@ -64,25 +63,6 @@ public class StartActivity extends AppCompatActivity {
             public void onAnimationStart(Animation animation) {}
 
         });
-/*
-        final View today_view = View.inflate(this, R.layout.today_sentence, null);
-        setContentView(today_view);
-        AlphaAnimation tt = new AlphaAnimation(0.3f,1.0f);
-        tt.setDuration(2000);
-        today_view.startAnimation(tt);
-        tt.setAnimationListener(new Animation.AnimationListener()
-        {
-            //动画页面结束后要干嘛
-            @Override
-            public void onAnimationEnd(Animation arg0) {
-                redirectTo();
-            }
-            @Override
-            public void onAnimationRepeat(Animation animation) {}
-            @Override
-            public void onAnimationStart(Animation animation) {}
-
-        });*/
     }
 
     private void redirectTo(){
