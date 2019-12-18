@@ -17,7 +17,6 @@ import com.willy.ratingbar.ScaleRatingBar;
 import com.yuyuereading.Model.bean.ReadInfo;
 import com.yuyuereading.Model.bean._User;
 import com.yuyuereading.Model.database.OperationReadInfo;
-import com.yuyuereading.Presenter.utils.ShakeListener;
 import com.yuyuereading.R;
 
 import java.util.Date;
@@ -35,7 +34,6 @@ public class WantReadActivity extends AppCompatActivity {
     ScaleRatingBar bookRating;
     EditText wantReason,wantHope;
     ReadInfo readInfo,readInfo2;
-    private ShakeListener mShakeListener;
 
 
     @Override
@@ -46,7 +44,6 @@ public class WantReadActivity extends AppCompatActivity {
         getInfoFromBookInfo();
         //getInfoFromBmob();
         findView();
-        initShake();
         onClick();
         //放入初始化信息
         initInfo();
@@ -133,17 +130,5 @@ public class WantReadActivity extends AppCompatActivity {
     public void onBackPressed()
     {
         finish();
-    }
-
-    private void initShake() {
-        mShakeListener=new ShakeListener(this);
-        mShakeListener.setOnShakeListener(new ShakeListener.OnShakeListenerCallBack() {
-            @Override
-            public void onShake() {
-                Intent intent = new Intent(context, ShakeActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 }

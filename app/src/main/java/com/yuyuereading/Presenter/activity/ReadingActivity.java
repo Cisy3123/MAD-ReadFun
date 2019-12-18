@@ -27,7 +27,6 @@ import com.yuyuereading.Model.bean.ReadInfo;
 import com.yuyuereading.Model.bean._User;
 import com.yuyuereading.Model.database.OperationReadInfo;
 import com.yuyuereading.Presenter.utils.LocationFromGaode;
-import com.yuyuereading.Presenter.utils.ShakeListener;
 import com.yuyuereading.R;
 
 import java.util.ArrayList;
@@ -54,7 +53,6 @@ public class ReadingActivity extends AppCompatActivity {
     private  String address;
     //定义一个获取定位消息的类
     LocationFromGaode getAddress;
-    private ShakeListener mShakeListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -67,7 +65,6 @@ public class ReadingActivity extends AppCompatActivity {
         onClick();
         //放入初始化信息
         initInfo();
-        initShake();
     }
 
     private void getInfoFromBookInfo() {
@@ -241,16 +238,5 @@ public class ReadingActivity extends AppCompatActivity {
     public void onBackPressed()
     {
         finish();
-    }
-    private void initShake() {
-        mShakeListener=new ShakeListener(this);
-        mShakeListener.setOnShakeListener(new ShakeListener.OnShakeListenerCallBack() {
-            @Override
-            public void onShake() {
-                Intent intent = new Intent(context, ShakeActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 }
