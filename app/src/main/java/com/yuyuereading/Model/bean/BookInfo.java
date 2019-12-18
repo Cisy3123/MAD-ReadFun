@@ -38,8 +38,6 @@ public class BookInfo extends BmobObject implements Serializable{
 
     private String book_tags;
 
-    private String book_haveReadDay;
-
     public BookInfo() {
 
     }
@@ -183,8 +181,4 @@ public class BookInfo extends BmobObject implements Serializable{
     public void setBook_tags(String book_tags) {
         this.book_tags = book_tags;
     }
-
-    public String getBook_haveReadDay(){return book_haveReadDay;}
-
-    public void setBook_haveReadDay(String book_haveReadDay){this.book_haveReadDay=book_haveReadDay;}
 }

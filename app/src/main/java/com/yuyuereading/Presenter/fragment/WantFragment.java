@@ -106,6 +106,7 @@ public class WantFragment extends Fragment {
     private void addDate() {
         adapter = new BookListAdapter(bookInfoList,"want");
         recyclerView.setAdapter(adapter);
+
     }
 
     @Override

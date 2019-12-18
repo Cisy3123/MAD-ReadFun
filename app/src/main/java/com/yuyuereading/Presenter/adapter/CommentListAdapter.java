@@ -2,8 +2,6 @@ package com.yuyuereading.Presenter.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,9 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.willy.ratingbar.ScaleRatingBar;
 import com.yuyuereading.Model.bean.BookComment;
-import com.yuyuereading.Presenter.activity.CommentActivity;
 import com.yuyuereading.R;
+import com.yuyuereading.View.CircleImageView;
 
 import java.util.List;
 
@@ -41,19 +41,18 @@ public class CommentListAdapter extends RecyclerView.Adapter<CommentListAdapter.
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(CommentListAdapter.ViewHolder holder, int position) {
-        final BookComment bookComment = mBookCommentList.get(position);
-        holder.finish_time.setText(bookComment.getFinish_time());
-        holder.page_update.setText(bookComment.getPage_update());
+        BookComment bookComment = mBookCommentList.get(position);
+        Glide.with(mContext)
+                .load(bookComment.getUser_favicon())
+                .into(holder.user_favicon);
+        holder.user_nickname.setText(bookComment.getUser_nickname());
+        holder.read_rating.setRating(Float.parseFloat(bookComment.getRead_rating()));
         holder.read_review.setText(bookComment.getRead_review());
+        holder.finish_time.setText("From BookRecord At " + bookComment.getFinish_time());
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //单击评论的触发事件
-                Intent intent = new Intent(mContext, CommentActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("bookComment", bookComment);
-                intent.putExtras(bundle);
-                mContext.startActivity(intent);
             }
         });
     }
@@ -65,15 +64,19 @@ public class CommentListAdapter extends RecyclerView.Adapter<CommentListAdapter.
 
     class ViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
+        CircleImageView user_favicon;
         View mItemView;
-        TextView read_review,page_update,finish_time;
+        ScaleRatingBar read_rating;
+        TextView user_nickname,read_review,finish_time;
         public ViewHolder(View itemView) {
             super(itemView);
             mItemView = itemView;
             cardView = (CardView) itemView;
-            read_review = itemView.findViewById(R.id.readReview);
-            page_update = itemView.findViewById(R.id.pageUpdate);
-            finish_time = itemView.findViewById(R.id.finishTime);
+            user_favicon = itemView.findViewById(R.id.user_favicon);
+            user_nickname = itemView.findViewById(R.id.user_nickname);
+            read_rating = itemView.findViewById(R.id.read_rating);
+            read_review = itemView.findViewById(R.id.read_review);
+            finish_time = itemView.findViewById(R.id.finish_time);
         }
     }
 }

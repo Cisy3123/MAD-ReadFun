@@ -49,6 +49,8 @@ import com.yuyuereading.Presenter.fragment.WantFragment;
 import com.yuyuereading.Presenter.utils.BookInfoGetFromDouban;
 import com.yuyuereading.Presenter.utils.HttpUtils;
 import com.yuyuereading.Presenter.utils.SearchFromDouban;
+import com.yuyuereading.Presenter.utils.ShakeListener;
+import com.yuyuereading.Presenter.utils.ShakeUtils;
 import com.yuyuereading.R;
 import com.yuyuereading.View.CircleImageView;
 
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements
     MaterialSearchView searchView;
     CircleImageView favicon;
     TextView nickname;
+    private ShakeListener mShakeListener;
     private int REQUEST_CODE = 5;
 
     @Override
@@ -88,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements
         onClick();
         displayList();
         display();
+        initShake();
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -110,6 +114,18 @@ public class MainActivity extends AppCompatActivity implements
         _User bmobUser = BmobUser.getCurrentUser(_User.class);
         nickname.setText(bmobUser.getUsername());
         favicon = headerLayout.findViewById(R.id.favicon);
+    }
+
+    private void initShake() {
+        mShakeListener=new ShakeListener(this);
+        mShakeListener.setOnShakeListener(new ShakeListener.OnShakeListenerCallBack() {
+            @Override
+            public void onShake() {
+                Intent intent = new Intent(mContext, ShakeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     //显示其他信息
@@ -375,4 +391,6 @@ public class MainActivity extends AppCompatActivity implements
             }
         }
     }
+
+
 }
