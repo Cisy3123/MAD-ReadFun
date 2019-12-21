@@ -47,12 +47,12 @@
                         android:textSize="24sp" />
                 </LinearLayout>
 
-                <TextView
+                <EditText
                     android:id="@+id/readReview"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/editCom"
@@ -63,6 +63,17 @@
                     android:text="编辑"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/finishEdit"
+                    android:layout_width="215dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#D50303"
+                    android:text="完成"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:visibility="invisible" />
 
             </LinearLayout>
 
