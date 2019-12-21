@@ -10,12 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yuyuereading.Model.bean.BookComment;
 import com.yuyuereading.R;
 
 public class CommentActivity extends AppCompatActivity {
-    Button returnButton,editCom,finishEdit;
+    Button returnButton,editCom,finishEdit,delete;
 
     TextView title,finishTime,pageUpdate;
 
@@ -54,6 +55,7 @@ public class CommentActivity extends AppCompatActivity {
         readReview=findViewById(R.id.readReview);
         editCom=findViewById(R.id.editCom);
         finishEdit=findViewById(R.id.finishEdit);
+        delete=findViewById(R.id.delete);
     }
 
     private void setNoEdit(){
@@ -77,13 +79,23 @@ public class CommentActivity extends AppCompatActivity {
                 readReview.setFocusable(true);
                 readReview.setFocusableInTouchMode(true);
                 editCom.setVisibility(View.GONE);
+                delete.setVisibility(View.GONE);
                 finishEdit.setVisibility(View.VISIBLE);
+            }
+        });
+        delete.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //从数据库中删除记录
+                Toast.makeText(CommentActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
         finishEdit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //保存数据入数据库
+                Toast.makeText(CommentActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

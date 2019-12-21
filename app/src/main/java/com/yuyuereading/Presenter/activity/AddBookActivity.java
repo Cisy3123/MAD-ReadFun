@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yuyuereading.R;
 
@@ -56,7 +57,7 @@ public class AddBookActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //保存数据入数据库
 
-
+                Toast.makeText(AddBookActivity.this, "录入成功", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
