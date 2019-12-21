@@ -2,14 +2,18 @@ package com.yuyuereading.Presenter.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.Time;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -23,6 +27,7 @@ import com.yuyuereading.Presenter.utils.ShakeListener;
 import com.yuyuereading.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -46,9 +51,9 @@ public class BookInfoActivity extends AppCompatActivity {
 
     String book_ISBN;
 
-    Button returnButton;
+    Button returnButton,update;
 
-    TextView bookName,bookWriter,bookISBN,book_summary,title, brief,haveReadDay;
+    TextView bookName,bookWriter,bookISBN,book_summary,title,brief,haveReadDay;
 
     ImageView bookImage;
 
@@ -57,7 +62,6 @@ public class BookInfoActivity extends AppCompatActivity {
     LinearLayoutManager mLayoutManager;
 
     ProgressBar readProgress;
-    private ShakeListener mShakeListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +94,6 @@ public class BookInfoActivity extends AppCompatActivity {
         book_summary.setText(bookInfo.getBook_summary());
         haveReadDay.setText("5天");
     }
-
     private void initView() {
         returnButton = findViewById(R.id.book_info_return);
         bookName = findViewById(R.id.bookName);
@@ -105,14 +108,13 @@ public class BookInfoActivity extends AppCompatActivity {
         scrollView = findViewById(R.id.scrollView);
         readProgress=findViewById(R.id.readProgress);
         recyclerView.setNestedScrollingEnabled(false);
+        update=findViewById(R.id.update);
     }
 
     //获取评论信息
     private void initList() {
         bookCommentList.clear();
-        for (int i = 0; i < bookComments.length;i++) {
-            bookCommentList.add(bookComments[i]);
-        }
+        Collections.addAll(bookCommentList, bookComments);
     }
 
     //向评论adapter中添加数据
@@ -124,7 +126,6 @@ public class BookInfoActivity extends AppCompatActivity {
 
     //监听事件
     private void onClick() {
-
         //scrollView从顶部显示
         scrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -133,7 +134,13 @@ public class BookInfoActivity extends AppCompatActivity {
                 scrollView.scrollTo(0,0);
             }
         });
-
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+//                inputTitleDialog();
+            }
+        });
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,7 +155,7 @@ public class BookInfoActivity extends AppCompatActivity {
     }
 
     private void initShake() {
-        mShakeListener=new ShakeListener(this);
+        ShakeListener mShakeListener = new ShakeListener(this);
         mShakeListener.setOnShakeListener(new ShakeListener.OnShakeListenerCallBack() {
             @Override
             public void onShake() {
@@ -159,4 +166,31 @@ public class BookInfoActivity extends AppCompatActivity {
         });
     }
 
+    private void inputTitleDialog() {
+        final EditText inputServerBegin = new EditText(this);
+        inputServerBegin.setFocusable(true);
+        final EditText inputServerEnd = new EditText(this);
+        inputServerEnd.setFocusable(true);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("开始页码").setView(inputServerBegin).
+                setTitle("结束页码").setView(inputServerEnd).
+                setNegativeButton("取消", null);
+        builder.setPositiveButton("确定",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        String beginPage = inputServerBegin.getText().toString();
+                        String endPage = inputServerEnd.getText().toString();
+                        Time t=new Time();
+                        t.setToNow(); // 取得系统时间。
+                        int month = t.month+1;
+                        int day = t.monthDay;
+                        BookComment bookComment=new BookComment(month+"."+day,
+                                beginPage+"-"+endPage,"    无");
+                        bookCommentList.add(bookComment);
+                        finish();
+                    }
+                });
+        builder.show();
+    }
 }

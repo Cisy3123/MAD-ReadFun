@@ -36,10 +36,10 @@ public class WantFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    private BookInfo[] bookInfos = {new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社"),
-            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社"),
-            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社"),
-            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社")};
+    private BookInfo[] bookInfos = {new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社","jianjie"),
+            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社","jianjie"),
+            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社","jianjie"),
+            new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2017-4-1","8.1","严歌苓","人民文学出版社","jianjie")};
 
     private List<BookInfo> bookInfoList = new ArrayList<>();
 

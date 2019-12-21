@@ -21,7 +21,6 @@ import com.yuyuereading.R;
  */
 public class HomeFragment extends Fragment {
     HomeFragment homeFragment;
-    Button homeReturn;
 
     private String mParam1;
     private String mParam2;

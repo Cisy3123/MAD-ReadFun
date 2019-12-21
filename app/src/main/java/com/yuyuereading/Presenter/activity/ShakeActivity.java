@@ -11,6 +11,10 @@ public class ShakeActivity extends AppCompatActivity {
 
     private Button back;
 
+    public void onBackPressed() {
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
