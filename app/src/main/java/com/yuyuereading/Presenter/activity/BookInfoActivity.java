@@ -160,7 +160,6 @@ public class BookInfoActivity extends AppCompatActivity {
             public void onShake() {
                 Intent intent = new Intent(mContext, ShakeActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

@@ -30,5 +30,4 @@ public class ShakeActivity extends AppCompatActivity {
             }
         });
     }
-
 }
