@@ -137,8 +137,7 @@ public class BookInfoActivity extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-//                inputTitleDialog();
+                inputTitleDialog();
             }
         });
         returnButton.setOnClickListener(new View.OnClickListener() {
@@ -167,28 +166,25 @@ public class BookInfoActivity extends AppCompatActivity {
     }
 
     private void inputTitleDialog() {
-        final EditText inputServerBegin = new EditText(this);
-        inputServerBegin.setFocusable(true);
-        final EditText inputServerEnd = new EditText(this);
-        inputServerEnd.setFocusable(true);
+        final EditText inputServer = new EditText(this);
+        inputServer.setFocusable(true);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("开始页码").setView(inputServerBegin).
-                setTitle("结束页码").setView(inputServerEnd).
+        builder.setTitle("开始页码-结束页码").setView(inputServer).
                 setNegativeButton("取消", null);
         builder.setPositiveButton("确定",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        String beginPage = inputServerBegin.getText().toString();
-                        String endPage = inputServerEnd.getText().toString();
+                        String Page = inputServer.getText().toString();
                         Time t=new Time();
                         t.setToNow(); // 取得系统时间。
                         int month = t.month+1;
                         int day = t.monthDay;
                         BookComment bookComment=new BookComment(month+"."+day,
-                                beginPage+"-"+endPage,"    无");
+                                Page,"    无");
                         bookCommentList.add(bookComment);
-                        finish();
+                        Intent intent =new Intent();
+                        intent.setClass(mContext, BookInfoActivity.class);
                     }
                 });
         builder.show();
