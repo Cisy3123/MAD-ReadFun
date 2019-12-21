@@ -88,6 +88,9 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(mContext, ReadingActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("bookInfo", bookInfo);
+                        intent.putExtras(bundle);
                         mContext.startActivity(intent);
                         //overridePendingTransition(R.anim.slide_right_in,R.anim.slide_left_out);
                     }

@@ -7,7 +7,7 @@
     android:background="#ddd"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context="com.yuyuereading.Presenter.activity.WantReadActivity">
+    tools:context=".Presenter.activity.WantReadActivity">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -145,7 +145,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="30dp"
                     android:layout_height="50dp"
-                    android:background="#3ccf1b"
+                    android:background="@color/grgray"
                     android:text="完成记录"
                     android:textSize="16sp"
                     android:textColor="#fff"/>

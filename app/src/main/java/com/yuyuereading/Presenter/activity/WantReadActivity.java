@@ -112,8 +112,8 @@ public class WantReadActivity extends AppCompatActivity {
     private void getInfoFromBookInfo() {
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra("id_score");
-        book_isbn = bundle.getString("bookISBN");
-        book_score = bundle.getString("bookScore");
+        //book_isbn = bundle.getString("bookISBN");
+        book_score = bundle.getString("book_rating");
     }
 
 
