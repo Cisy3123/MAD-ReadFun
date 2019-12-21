@@ -1,6 +1,7 @@
 package com.yuyuereading.Presenter.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.yuyuereading.Model.bean.BookInfo;
+import com.yuyuereading.Presenter.activity.AddBookActivity;
 import com.yuyuereading.Presenter.adapter.BookListAdapter;
 import com.yuyuereading.R;
 
@@ -189,46 +191,17 @@ public class ReadingFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        addBook =getActivity().findViewById(R.id.add_book);
         addBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), AddBookActivity.class);
+                startActivity(intent);
             }
         });
     }
 }
-
-//        // final User user ;
-//        final EditText et_title = (EditText) getActivity().findViewById(R.id.et_title);
-//        final EditText et_salary = (EditText) getActivity().findViewById(R.id.et_salary);
-//        final EditText et_sex = (EditText) getActivity().findViewById(R.id.et_sex);
-//        final EditText et_count = (EditText) getActivity().findViewById(R.id.et_count);
-//        final EditText et_phone = (EditText) getActivity().findViewById(R.id.et_phone);
-//        final EditText et_time = (EditText) getActivity().findViewById(R.id.et_time);
-//        final EditText et_address = (EditText) getActivity().findViewById(R.id.et_address);
-//        final EditText et_description = (EditText) getActivity().findViewById(R.id.et_description);
-//        Button btn_send = (Button) getActivity().findViewById(R.id.btn_send);
-//
-//        btn_send.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //String username=user.getUsername().toString();
-//                String title = et_title.getText().toString();
-//                String salary = et_salary.getText().toString();
-//                String sex = et_sex.getText().toString();
-//                String count = et_count.getText().toString();
-//                String phone = et_phone.getText().toString();
-//                String time = et_time.getText().toString();
-//                String address = et_address.getText().toString();
-//                String description = et_description.getText().toString();
-//                JobDao jobDao = new JobDao(getActivity());
-//                jobDao.add(new Job(title, salary, sex, count, phone, time, address, description));
-//                Toast.makeText(getActivity(), "发布成功", Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(getActivity(),MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });

@@ -1,6 +1,7 @@
 package com.yuyuereading.Presenter.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.yuyuereading.Model.bean.BookInfo;
+import com.yuyuereading.Presenter.activity.AddBookActivity;
 import com.yuyuereading.Presenter.adapter.BookListAdapter;
 import com.yuyuereading.R;
 
@@ -201,11 +203,11 @@ public class WantFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        addBook =getActivity().findViewById(R.id.add_book);
         addBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), AddBookActivity.class);
+                startActivity(intent);
             }
         });
     }
