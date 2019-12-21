@@ -65,10 +65,8 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
         Glide.with(mContext)
                 .load(bookInfo.getBook_image())
                 .into(holder.bookImage);
-        holder.publicDate.setText(bookInfo.getBook_publish_date());
         holder.authorName.setText(bookInfo.getBook_author());
-        holder.publicer.setText(bookInfo.getBook_publisher());
-        holder.simpleRatingBar.setRating(Float.parseFloat(bookInfo.getBook_rating())/2);
+        holder.publicName.setText(bookInfo.getBook_publisher());
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,7 +81,6 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
 
         switch (mStatus) {
             case "want":
-                holder.rating.setText(bookInfo.getBook_rating()+" FROM豆瓣");
                 holder.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -97,7 +94,6 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
                 });
                 break;
             case "reading":
-                holder.rating.setText(bookInfo.getBook_rating());
                 holder.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -109,6 +105,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
                 break;
             default:
                 holder.rating.setText(bookInfo.getBook_rating());
+                holder.simpleRatingBar.setRating(Float.parseFloat(bookInfo.getBook_rating())/2);
                 break;
         }
     }
@@ -124,7 +121,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
         View mItemView;
         ImageView bookImage;
         ScaleRatingBar simpleRatingBar;
-        TextView bookName,publicDate,rating,authorName,publicer;
+        TextView bookName,rating,authorName,publicName;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -132,11 +129,8 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
             cardView = (CardView) itemView;
             bookImage = itemView.findViewById(R.id.book_image);
             bookName = itemView.findViewById(R.id.book_name);
-            publicDate = itemView.findViewById(R.id.public_date);
-            rating = itemView.findViewById(R.id.rating);
             authorName = itemView.findViewById(R.id.author_name);
-            publicer = itemView.findViewById(R.id.public_name);
-            simpleRatingBar = itemView.findViewById(R.id.simpleRatingBar);
+            publicName = itemView.findViewById(R.id.public_name);
             switch (mStatus) {
                 case "want":
                     button = itemView.findViewById(R.id.button_reading);
@@ -145,9 +139,10 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
                     button = itemView.findViewById(R.id.button_seen);
                     break;
                 default:
+                    rating = itemView.findViewById(R.id.rating);
+                    simpleRatingBar = itemView.findViewById(R.id.simpleRatingBar);
                     break;
             }
         }
     }
-
 }

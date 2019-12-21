@@ -39,6 +39,7 @@
     <string name="day" translatable="false">星期一</string>
     <string name="updateNote" translatable="false">更新进度</string>
     <string name="add_book" translatable="false">加入想读</string>
+    <string name="readingText">在读</string>
 
 
 </resources>
