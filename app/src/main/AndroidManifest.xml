@@ -26,7 +26,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Presenter.activity.Statistic"></activity>
         <activity android:name=".Presenter.activity.MainActivity" />
         <activity android:name=".Presenter.activity.LoginActivity" />
         <activity android:name=".Presenter.activity.StartActivity">
@@ -47,7 +46,7 @@
         <activity android:name=".Presenter.activity.ShakeActivity" />
         <activity android:name=".Presenter.activity.StatisticActivity" />
         <activity android:name=".Presenter.activity.BookListActivity" />
-
+        <activity android:name=".Presenter.activity.AddBookActivity" />
         <service android:name="com.amap.api.location.APSService" />
 
         <meta-data
