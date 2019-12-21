@@ -59,8 +59,6 @@ public class BookListActivity extends AppCompatActivity {
         adapter = new RecommendAdapter(bookInfoList);
         bookListView.setAdapter(adapter);
         getBookInfo();
-        adapter.setData(bookInfoList);
-        Toast.makeText(BookListActivity.this, "刷新", Toast.LENGTH_SHORT).show();
         onClick();
         initShake();
     }
@@ -75,9 +73,9 @@ public class BookListActivity extends AppCompatActivity {
     }
 
     private void initView(){
-        view=LayoutInflater.from(mContext).inflate(R.layout.activity_book_list,null);
-        back=view.findViewById(R.id.book_list_return);
-        bookListView= view.findViewById(R.id.book_list);
+
+        back=findViewById(R.id.book_list_return);
+        bookListView= findViewById(R.id.book_list);
     }
 
     private void getBookInfo(){
@@ -98,13 +96,6 @@ public class BookListActivity extends AppCompatActivity {
                 break;
 
         }
-    }
-
-    private void addDate() {
-
-        bookListView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-        Toast.makeText(BookListActivity.this, "添加数据", Toast.LENGTH_SHORT).show();
     }
 
     private void initShake(){

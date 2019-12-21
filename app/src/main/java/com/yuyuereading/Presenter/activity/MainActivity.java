@@ -280,6 +280,8 @@ public class MainActivity extends AppCompatActivity implements
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_statistic) {
+            Intent intent=new Intent(mContext,StatisticActivity.class);
+            startActivity(intent);
             // Handle the camera action
         }else if (id == R.id.nav_update) {
 
