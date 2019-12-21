@@ -99,7 +99,6 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
                     public void onClick(View view) {
                         Intent intent = new Intent(mContext, SeenActivity.class);
                         mContext.startActivity(intent);
-                        //overridePendingTransition(R.anim.slide_right_in,R.anim.slide_left_out);
                     }
                 });
                 break;
