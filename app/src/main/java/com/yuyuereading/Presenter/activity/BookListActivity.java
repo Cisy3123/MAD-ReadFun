@@ -27,7 +27,6 @@ public class BookListActivity extends AppCompatActivity {
     private Button back;
     private List<BookInfo> bookInfoList = new ArrayList<>();
     private RecommendAdapter adapter;
-    private View view;
     private String type;
     private LinearLayoutManager mLayoutManager;
 
@@ -73,7 +72,6 @@ public class BookListActivity extends AppCompatActivity {
     }
 
     private void initView(){
-
         back=findViewById(R.id.book_list_return);
         bookListView= findViewById(R.id.book_list);
     }
