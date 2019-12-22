@@ -19,8 +19,8 @@ public class BookInfoGetFromDouban {
 
         String bookName=bookItem.getString("title");
         bookInfo.setBook_name(bookName);
-        String originTitle=bookItem.getString("origin_title");
-        bookInfo.setBook_origin_title(originTitle);
+       // String originTitle=bookItem.getString("origin_title");
+        //bookInfo.setBook_origin_title(originTitle);
         String image=bookItem.getString("image");
         bookInfo.setBook_image(image);
         //解析作者组
@@ -31,23 +31,24 @@ public class BookInfoGetFromDouban {
         }
         bookInfo.setBook_author(book_author.toString());
 
-        String translator = bookItem.getString("translator");
-        bookInfo.setBook_translator(translator);
+        //String translator = bookItem.getString("translator");
+        //bookInfo.setBook_translator(translator);
         String summary = bookItem.getString("summary");
         bookInfo.setBook_summary(summary);
-        String isbn10 = bookItem.getString("isbn10");
-        bookInfo.setBook_isbn10(isbn10);
-        String isbn13 = bookItem.getString("isbn13");
-        bookInfo.setBook_isbn13(isbn13);
+      //  String isbn10 = bookItem.getString("isbn10");
+        //bookInfo.setBook_isbn10(isbn10);
+       // String isbn13 = bookItem.getString("isbn13");
+       // bookInfo.setBook_isbn13(isbn13);
         String publisher = bookItem.getString("publisher");
         bookInfo.setBook_publisher(publisher);
-        String publish_date = bookItem.getString("pubdate");
-        bookInfo.setBook_publish_date(publish_date);
+        //String publish_date = bookItem.getString("pubdate");
+       // bookInfo.setBook_publish_date(publish_date);
         //获取豆瓣平均评分
         JSONObject ratingdt=JSON.parseObject(bookItem.getString("rating"));
-        String rating=ratingdt.getString("average");
+
+        String rating=bookItem.getString("ranking");
         bookInfo.setBook_rating(rating);
-        String author_intro = bookItem.getString("author_intro");
+        /*String author_intro = bookItem.getString("author_intro");
         bookInfo.setBook_author_intro(author_intro);
         String price = bookItem.getString("price");
         bookInfo.setBook_price(price);
@@ -60,7 +61,7 @@ public class BookInfoGetFromDouban {
             JSONObject tagItem = JSON.parseObject(tags.get(j).toString());
             book_tags.append(" ").append(tagItem.getString("title"));
         }
-        bookInfo.setBook_tags(book_tags.toString());
+        bookInfo.setBook_tags(book_tags.toString());*/
 
 
         /*String imageUrl = jsonObject.getString("image");

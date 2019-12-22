@@ -54,6 +54,7 @@ import com.yuyuereading.R;
 import com.yuyuereading.View.CircleImageView;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -147,17 +148,17 @@ public class MainActivity extends AppCompatActivity implements
                 progress.setCanceledOnTouchOutside(false);
                 progress.show();
                 //Snackbar.make(findViewById(R.id.container), "Query: " + query, Snackbar.LENGTH_LONG).show();
-                HttpUtils.doGetAsy("https://api.douban.com/v2/book/search?q=" + query, new HttpUtils.CallBack() {
+                HttpUtils.doGetAsy("http://139.196.36.97:8080/sbDemo/Book/search?keyword=" + query, new HttpUtils.CallBack() {
                     @Override
                     public void onRequestComplete(String result) {
                         try {
                             List<BookInfo> bookInfos = SearchFromDouban.parsingBookInfos(result);
-                            /*Intent intent = new Intent();
-                            intent.setClass(mContext, SearchActivity.class);
+                            Intent intent = new Intent();
+                            intent.setClass(mContext,BookListActivity.class);
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("bookInfo", (Serializable)bookInfos);
                             intent.putExtras(bundle);
-                            startActivity(intent);*/
+                            startActivity(intent);
                             progress.dismiss();
                         } catch (IOException e) {
                             e.printStackTrace();

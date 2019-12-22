@@ -21,11 +21,12 @@ public class SearchFromDouban {
     public static List<BookInfo> parsingBookInfos(final String json) throws IOException {
         JSONObject jsonObject = JSON.parseObject(json);
         List<BookInfo> bookInfos = new ArrayList<BookInfo>();
-        int count = jsonObject.getInteger( "count");
-        int start =jsonObject.getInteger("start");
+        //int count = jsonObject.getInteger( "count");
+        //int start =jsonObject.getInteger("start");
         //int total =jsonObject.getInteger("total");
-        JSONArray books= jsonObject.getJSONArray("books");
-        for(i=start;i<count;i++){
+        //JSONArray books= JSON.parseArray("books");
+        JSONArray books= JSON.parseArray(json);
+        for(i=0;i<books.size();i++){
             BookInfo bookInfo;
             bookInfo= BookInfoGetFromDouban.parsingBookInfo(books.get(i).toString());
             bookInfos.add(bookInfo);

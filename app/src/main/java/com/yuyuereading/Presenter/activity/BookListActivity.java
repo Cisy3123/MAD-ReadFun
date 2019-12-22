@@ -1,5 +1,6 @@
 package com.yuyuereading.Presenter.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +12,13 @@ import android.widget.Button;
 
 import com.yuyuereading.Model.bean.BookInfo;
 import com.yuyuereading.Presenter.adapter.BookListAdapter;
+import com.yuyuereading.Presenter.utils.HttpUtils;
+import com.yuyuereading.Presenter.utils.SearchFromDouban;
 import com.yuyuereading.Presenter.utils.ShakeListener;
 import com.yuyuereading.R;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -90,6 +95,23 @@ public class BookListActivity extends AppCompatActivity {
                 break;
 
         }
+
+        final ProgressDialog progress = new ProgressDialog(mContext);
+        progress.setMessage("正在搜索...");
+        progress.setCanceledOnTouchOutside(false);
+        progress.show();
+        HttpUtils.doGetAsy("http://139.196.36.97:8080/sbDemo/Book/search?keyword=", new HttpUtils.CallBack() {
+            @Override
+            public void onRequestComplete(String result) {
+                try {
+                    List<BookInfo> bookInfos = SearchFromDouban.parsingBookInfos(result);
+                    bookInfoList.addAll(bookInfos);
+                    progress.dismiss();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private void initShake(){
