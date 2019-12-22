@@ -32,6 +32,7 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONArray;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
@@ -52,6 +53,9 @@ import com.yuyuereading.Presenter.utils.SearchFromDouban;
 import com.yuyuereading.Presenter.utils.ShakeListener;
 import com.yuyuereading.R;
 import com.yuyuereading.View.CircleImageView;
+
+
+import com.alibaba.fastjson.JSONObject;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -143,23 +147,26 @@ public class MainActivity extends AppCompatActivity implements
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                final ProgressDialog progress = new ProgressDialog(mContext);
-                progress.setMessage("正在搜索...");
-                progress.setCanceledOnTouchOutside(false);
-                progress.show();
+                //final ProgressDialog progress = new ProgressDialog(mContext);
+               // progress.setMessage("正在搜索...");
+               // progress.setCanceledOnTouchOutside(false);
+               // progress.show();
                 //Snackbar.make(findViewById(R.id.container), "Query: " + query, Snackbar.LENGTH_LONG).show();
                 HttpUtils.doGetAsy("http://139.196.36.97:8080/sbDemo/Book/search?keyword=" + query, new HttpUtils.CallBack() {
                     @Override
                     public void onRequestComplete(String result) {
                         try {
-                            List<BookInfo> bookInfos = SearchFromDouban.parsingBookInfos(result);
+                            JSONArray jsonArray=JSONArray.parseArray(result);
+                            //JSONObject jsonObject1 = JSONObject.parseObject(result);
+                            List<BookInfo> bookInfos = SearchFromDouban.parsingBookInfos(jsonArray);
                             Intent intent = new Intent();
-                            intent.setClass(mContext,BookListActivity.class);
+                            intent.setClass(mContext, BookListActivity.class);
+                            intent.putExtra("type","search");
                             Bundle bundle = new Bundle();
-                            bundle.putSerializable("bookInfo", (Serializable)bookInfos);
+                            bundle.putSerializable("bookInfos", (Serializable)bookInfos);
                             intent.putExtras(bundle);
                             startActivity(intent);
-                            progress.dismiss();
+                           // progress.dismiss();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

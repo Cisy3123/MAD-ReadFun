@@ -1,6 +1,5 @@
 package com.yuyuereading.Presenter.activity;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,13 +11,10 @@ import android.widget.Button;
 
 import com.yuyuereading.Model.bean.BookInfo;
 import com.yuyuereading.Presenter.adapter.BookListAdapter;
-import com.yuyuereading.Presenter.utils.HttpUtils;
-import com.yuyuereading.Presenter.utils.SearchFromDouban;
 import com.yuyuereading.Presenter.utils.ShakeListener;
 import com.yuyuereading.R;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +24,7 @@ public class BookListActivity extends AppCompatActivity {
     private ShakeListener mShakeListener;
     private RecyclerView bookListView;
     private Button back;
-    private List<BookInfo> bookInfoList = new ArrayList<>();
+    private ArrayList<BookInfo> bookInfoList = new ArrayList<>();
     private BookListAdapter adapter;
     private String type;
     private LinearLayoutManager mLayoutManager;
@@ -48,6 +44,8 @@ public class BookListActivity extends AppCompatActivity {
     private BookInfo[] nobelBookList = {new BookInfo("https://img3.doubanio.com/view/subject/l/public/s8492855.jpg","切尔诺贝利的回忆","2012-1","8.5","S·A·阿列克谢耶维奇","凤凰出版社","1"),
             new BookInfo("https://img3.doubanio.com/view/subject/l/public/s29040872.jpg","逃离","2016-10-1","8.5"," [加拿大] 艾丽丝·门罗","北京十月文艺出版社","1"),
             new BookInfo("https://img3.doubanio.com/view/subject/l/public/s29249760.jpg","红高粱家族","2017-1","8.8","莫言","浙江文艺出版社","1")};
+
+    private ArrayList<BookInfo> searchBookList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,28 +88,14 @@ public class BookListActivity extends AppCompatActivity {
             case"mao":
                 bookInfoList.addAll(Arrays.asList(maoBookList));
                 break;
-            default:
+            case"nobel":
                 bookInfoList.addAll(Arrays.asList(nobelBookList));
                 break;
-
+            default:
+                searchBookList=(ArrayList<BookInfo>)getIntent().getSerializableExtra("bookInfos");
+                bookInfoList.addAll(searchBookList);
+                break;
         }
-
-        final ProgressDialog progress = new ProgressDialog(mContext);
-        progress.setMessage("正在搜索...");
-        progress.setCanceledOnTouchOutside(false);
-        progress.show();
-        HttpUtils.doGetAsy("http://139.196.36.97:8080/sbDemo/Book/search?keyword=", new HttpUtils.CallBack() {
-            @Override
-            public void onRequestComplete(String result) {
-                try {
-                    List<BookInfo> bookInfos = SearchFromDouban.parsingBookInfos(result);
-                    bookInfoList.addAll(bookInfos);
-                    progress.dismiss();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
     }
 
     private void initShake(){
