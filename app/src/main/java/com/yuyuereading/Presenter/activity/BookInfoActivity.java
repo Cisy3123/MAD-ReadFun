@@ -162,7 +162,7 @@ public class BookInfoActivity extends AppCompatActivity {
     private void changeList() {
         if(bookCommentList.get(0)==bookComments[0]) {
             bookCommentList.clear();
-            for (int i = bookComments.length - 1; i > 0; i--) {
+            for (int i = bookComments.length - 1; i >= 0; i--) {
                 bookCommentList.add(bookComments[i]);
             }
         }else {
