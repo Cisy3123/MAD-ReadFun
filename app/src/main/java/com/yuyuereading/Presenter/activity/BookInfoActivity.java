@@ -55,13 +55,15 @@ public class BookInfoActivity extends AppCompatActivity {
 
     TextView bookName,bookWriter,bookISBN,book_summary,title,brief,haveReadDay;
 
-    ImageView bookImage;
+    ImageView bookImage,order;
 
     ScrollView scrollView;
 
     LinearLayoutManager mLayoutManager;
 
     ProgressBar readProgress;
+
+    CommentListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +111,7 @@ public class BookInfoActivity extends AppCompatActivity {
         readProgress=findViewById(R.id.readProgress);
         recyclerView.setNestedScrollingEnabled(false);
         update=findViewById(R.id.update);
+        order=findViewById(R.id.order);
     }
 
     //获取评论信息
@@ -120,7 +123,7 @@ public class BookInfoActivity extends AppCompatActivity {
 
     //向评论adapter中添加数据
     private void addDate() {
-        CommentListAdapter adapter = new CommentListAdapter(bookCommentList);
+        adapter = new CommentListAdapter(bookCommentList);
         recyclerView.setAdapter(adapter);
     }
 
@@ -147,6 +150,26 @@ public class BookInfoActivity extends AppCompatActivity {
               finish();
             }
         });
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeList();
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void changeList() {
+        if(bookCommentList.get(0)==bookComments[0]) {
+            bookCommentList.clear();
+            for (int i = bookComments.length - 1; i > 0; i--) {
+                bookCommentList.add(bookComments[i]);
+            }
+        }else {
+            bookCommentList.clear();
+            for (int i = 0; i < bookComments.length;i++) {
+                bookCommentList.add(bookComments[i]);}
+        }
     }
 
 
