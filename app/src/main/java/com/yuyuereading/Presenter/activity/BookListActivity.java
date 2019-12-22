@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.yuyuereading.Model.bean.BookInfo;
-import com.yuyuereading.Presenter.adapter.RecommendAdapter;
+import com.yuyuereading.Presenter.adapter.BookListAdapter;
 import com.yuyuereading.Presenter.utils.ShakeListener;
 import com.yuyuereading.R;
 
@@ -26,12 +24,12 @@ public class BookListActivity extends AppCompatActivity {
     private RecyclerView bookListView;
     private Button back;
     private List<BookInfo> bookInfoList = new ArrayList<>();
-    private RecommendAdapter adapter;
+    private BookListAdapter adapter;
     private String type;
     private LinearLayoutManager mLayoutManager;
 
-    private BookInfo[] allanBookList = {new BookInfo("https://img1.doubanio.com/view/subject/l/public/s29636258.jpg","坠落之前","2017-12","8.1","[美] 诺亚·霍利","天津人民出版社","1"),
-            new BookInfo("https://img3.doubanio.com/view/subject/l/public/s29440931.jpg","梅赛德斯先生","2017-5-1","8.1"," [美] 斯蒂芬·金","人民文学出版社","1"),
+    private BookInfo[] allanBookList = {new BookInfo("https://img1.doubanio.com/view/subject/l/public/s29636258.jpg","坠落之前","2017-12","7.5","[美] 诺亚·霍利","天津人民出版社","1"),
+            new BookInfo("https://img3.doubanio.com/view/subject/l/public/s29440931.jpg","梅赛德斯先生","2017-5-1","8.5"," [美] 斯蒂芬·金","人民文学出版社","1"),
             new BookInfo("https://img3.doubanio.com/view/subject/l/public/s29460010.jpg","夜色人生","2016-10-15","8.1","[美] 丹尼斯·勒翰","江苏凤凰文艺出版社","1")};
 
     private BookInfo[] oscarBookList = {new BookInfo("https://img3.doubanio.com/view/subject/l/public/s28281251.jpg","了不起的盖茨比","2013-9-1","8.5","[美] 弗·司各特·菲茨杰拉德","南海出版公司","1"),
@@ -55,7 +53,7 @@ public class BookListActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(mContext);
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         bookListView.setLayoutManager(mLayoutManager);
-        adapter = new RecommendAdapter(bookInfoList);
+        adapter = new BookListAdapter(bookInfoList,"recommend");
         bookListView.setAdapter(adapter);
         getBookInfo();
         onClick();

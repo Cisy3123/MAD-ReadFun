@@ -19,6 +19,7 @@ import com.yuyuereading.Model.bean.BookInfo;
 import com.yuyuereading.Presenter.activity.BookInfoActivity;
 import com.yuyuereading.Presenter.activity.ReadingActivity;
 import com.yuyuereading.Presenter.activity.SeenActivity;
+import com.yuyuereading.Presenter.activity.WantReadActivity;
 import com.yuyuereading.R;
 
 import java.util.List;
@@ -49,6 +50,9 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
                 break;
             case "reading":
                 view = LayoutInflater.from(mContext).inflate(R.layout.reading_item, parent, false);
+                break;
+            case "recommend":
+                view = LayoutInflater.from(mContext).inflate(R.layout.book_list_item,parent,false);
                 break;
             default:
                 view = LayoutInflater.from(mContext).inflate(R.layout.seen_item, parent, false);
@@ -102,6 +106,20 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
                     }
                 });
                 break;
+            case "recommend":
+                holder.simpleRatingBar.setRating(Float.parseFloat(bookInfo.getBook_rating())/2);
+                holder.rating.setText(bookInfo.getBook_rating());
+                holder.button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, WantReadActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("bookName", bookInfo.getBook_name());
+                        intent.putExtras(bundle);
+                        mContext.startActivity(intent);
+                    }
+                });
+                break;
             default:
                 holder.rating.setText(bookInfo.getBook_rating());
                 holder.simpleRatingBar.setRating(Float.parseFloat(bookInfo.getBook_rating())/2);
@@ -136,6 +154,11 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
                     break;
                 case "reading":
                     button = itemView.findViewById(R.id.button_seen);
+                    break;
+                case "recommend":
+                    rating = itemView.findViewById(R.id.rating);
+                    simpleRatingBar = itemView.findViewById(R.id.simpleRatingBar);
+                    button=itemView.findViewById(R.id.button_add);
                     break;
                 default:
                     rating = itemView.findViewById(R.id.rating);
