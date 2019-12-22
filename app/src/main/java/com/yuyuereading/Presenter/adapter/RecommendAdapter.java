@@ -32,11 +32,6 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.View
         mBookInfoList = bookInfoList;
     }
 
-    public void setData(List<BookInfo> bookInfoList){
-       mBookInfoList.addAll(bookInfoList);
-        notifyDataSetChanged();
-    }
-
     @Override
     public RecommendAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
@@ -65,7 +60,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.View
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, WantReadActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("bookInfo", bookInfo);
+                bundle.putSerializable("bookName", bookInfo.getBook_name());
                 intent.putExtras(bundle);
                 mContext.startActivity(intent);
             }

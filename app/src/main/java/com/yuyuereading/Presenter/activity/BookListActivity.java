@@ -77,11 +77,9 @@ public class BookListActivity extends AppCompatActivity {
     }
 
     private void getBookInfo(){
-        Toast.makeText(BookListActivity.this, type, Toast.LENGTH_SHORT).show();
         switch (type){
             case "allan":
                 bookInfoList.addAll(Arrays.asList(allanBookList));
-                Toast.makeText(BookListActivity.this, bookInfoList.get(0).getBook_name(), Toast.LENGTH_SHORT).show();
                 break;
             case "oscar":
                 bookInfoList.addAll(Arrays.asList(oscarBookList));
