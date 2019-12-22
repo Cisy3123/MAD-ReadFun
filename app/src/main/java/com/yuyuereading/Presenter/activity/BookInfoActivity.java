@@ -114,7 +114,8 @@ public class BookInfoActivity extends AppCompatActivity {
     //获取评论信息
     private void initList() {
         bookCommentList.clear();
-        Collections.addAll(bookCommentList, bookComments);
+        for (int i = 0; i < bookComments.length;i++) {
+            bookCommentList.add(bookComments[i]);}
     }
 
     //向评论adapter中添加数据
