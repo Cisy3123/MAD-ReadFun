@@ -7,7 +7,7 @@
     android:background="#ddd"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context="com.yuyuereading.Presenter.activity.UserInfoActivity">
+    tools:context=".activity.UserInfoActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
-                    android:text="姓名"
+                    android:text="昵称"
                     android:layout_marginLeft="15dp"
                     />
                 <TextView
@@ -82,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
-                    android:text="学校"
+                    android:text="简介"
                     android:layout_marginLeft="15dp"/>
                 <TextView
                     android:id="@+id/user_info_school"
@@ -109,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
-                    android:text="专业"
+                    android:text="书籍偏好"
                     android:layout_marginLeft="15dp"/>
                 <TextView
                     android:id="@+id/user_info_major"
@@ -136,7 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
-                    android:text="联系方式"
+                    android:text="联系邮箱"
                     android:layout_marginLeft="15dp"/>
                 <TextView
                     android:id="@+id/user_info_telephone"
