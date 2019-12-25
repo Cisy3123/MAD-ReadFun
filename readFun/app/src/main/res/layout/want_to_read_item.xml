@@ -17,7 +17,7 @@
             android:layout_height="140dp"
             android:layout_margin="10dp"
             android:scaleType="fitCenter"
-            android:contentDescription="TODO" />
+            android:contentDescription="@null" />
 
         <LinearLayout
             android:orientation="vertical"

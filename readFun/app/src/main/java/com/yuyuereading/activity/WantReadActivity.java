@@ -12,9 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.willy.ratingbar.ScaleRatingBar;
-import com.yuyuereading.Model.bean.ReadInfo;
-import com.yuyuereading.Model.bean._User;
-import com.yuyuereading.Model.database.OperationReadInfo;
+import com.yuyuereading.model.bean.ReadInfo;
+import com.yuyuereading.model.bean._User;
+import com.yuyuereading.model.database.OperationReadInfo;
 import com.yuyuereading.R;
 
 import java.util.List;
@@ -23,18 +23,16 @@ import cn.bmob.v3.BmobUser;
 
 public class WantReadActivity extends AppCompatActivity {
 
-    private Boolean bmob_if_hava_read_info = false;
+    private Boolean bmob_if_have_read_info = false;
     Context context=WantReadActivity.this;
     private Button returnButton;
     private Button wantButton;
     private String book_isbn;
     String book_score;
-    private ScaleRatingBar bookRating;
     private EditText wantReason;
     private EditText wantHope;
     private ReadInfo readInfo;
     ReadInfo readInfo2;
-    private TextView book_name;
     private String bookName;
 
 
@@ -64,7 +62,7 @@ public class WantReadActivity extends AppCompatActivity {
                         //Log.i("bmob","handler传送成功:"+readInfo.getObjectId());
                         wantReason.setText(readInfo.getRead_reason());
                         wantHope.setText(readInfo.getRead_except());
-                        bmob_if_hava_read_info = true;
+                        bmob_if_have_read_info = true;
                     }
                 }
             }
@@ -98,13 +96,14 @@ public class WantReadActivity extends AppCompatActivity {
 
 
 
+    @SuppressLint("SetTextI18n")
     private void findView() {
         returnButton = findViewById(R.id.want_read_return);
         wantButton = findViewById(R.id.want_read_Button);
-        bookRating =  findViewById(R.id.bookRating);
+        ScaleRatingBar bookRating = findViewById(R.id.bookRating);
         wantReason = findViewById(R.id.want_read_reason);
         wantHope = findViewById(R.id.want_read_hope);
-        book_name=findViewById(R.id.book_name);
+        TextView book_name = findViewById(R.id.book_name);
         book_name.setText("书名："+bookName);
     }
     public void onBackPressed()

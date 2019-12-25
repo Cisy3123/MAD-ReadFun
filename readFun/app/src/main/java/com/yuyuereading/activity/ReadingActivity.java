@@ -19,9 +19,9 @@ import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.willy.ratingbar.ScaleRatingBar;
-import com.yuyuereading.Model.bean.ReadInfo;
-import com.yuyuereading.Model.bean._User;
-import com.yuyuereading.Model.database.OperationReadInfo;
+import com.yuyuereading.model.bean.ReadInfo;
+import com.yuyuereading.model.bean._User;
+import com.yuyuereading.model.database.OperationReadInfo;
 import com.yuyuereading.R;
 
 import java.util.ArrayList;
@@ -94,7 +94,7 @@ public class ReadingActivity extends AppCompatActivity {
         read_notes = findViewById(R.id.reading_note_text);
         read_reason = findViewById(R.id.reading_reason);
         Spinner reading_way = findViewById(R.id.reading_way);
-        classfy=findViewById(R.id.reading_classfy);
+        classfy=findViewById(R.id.reading_classify);
         reading_button = findViewById(R.id.reading_button);
     }
 
@@ -130,8 +130,7 @@ public class ReadingActivity extends AppCompatActivity {
     //初始化分类picker
     private void classfyinit(){
         String[] book={"推理悬疑","影视原著","青春言情","经济管理","互联网+","职场提升","成功励志","心理课堂","历史小说","职场小说"};
-        final ArrayList<String> bookcalssfy=new ArrayList<>();
-        bookcalssfy.addAll(Arrays.asList(book).subList(0, 10));
+        final ArrayList<String> bookcalssfy = new ArrayList<>(Arrays.asList(book).subList(0, 10));
         OptionsPickerView  classOptions = new  OptionsPickerBuilder(this, new OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int option2, int options3 ,View v) {

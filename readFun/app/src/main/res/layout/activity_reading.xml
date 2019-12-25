@@ -20,7 +20,7 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:src="@mipmap/vertical_line"
-            android:contentDescription="TODO" />
+            android:contentDescription="@null" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -145,12 +145,12 @@
                         tools:ignore="RtlHardcoded" />
 
                     <TextView
-                        android:id="@+id/reading_classfy"
+                        android:id="@+id/reading_classify"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:gravity="center_vertical"
-                        android:hint="点击选择图书分类" />
+                        android:hint="@string/classify" />
                 </LinearLayout>
 
                 <Button
@@ -162,9 +162,9 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@color/grgray"
-                    android:text="完成记录"
+                    android:text="@string/finishCom"
                     android:textColor="#fff"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </ScrollView>

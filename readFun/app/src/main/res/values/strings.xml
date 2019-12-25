@@ -15,7 +15,7 @@
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="search" translatable="false">search</string>
     <string name="scan" translatable="false">scan</string>
-    <string name="bookimage" translatable="false">BookImage</string>
+    <string name="bookImage" translatable="false">BookImage</string>
     <string name="seen" translatable="false">读过</string>
     <string name="book_summary" translatable="false">内容简介</string>
     <string name="split" translatable="false">分隔图片</string>
@@ -31,6 +31,13 @@
     <string name="add_book" translatable="false">想读</string>
     <string name="readingText" translatable="false">在读</string>
     <string name="book_list" translatable="false">书单</string>
-
-
+    <string name="bookRec" translatable="false">图书推荐</string>
+    <string name="want" translatable="false">想读</string>
+    <string name="todaySen" translatable="false">今日赏句</string>
+    <string name="readCount" translatable="false">阅读统计</string>
+    <string name="classify" translatable="false">点击选择图书分类</string>
+    <string name="finishCom" translatable="false">完成记录</string>
+    <string name="inputPlz" translatable="false">请输入内容</string>
+    <string name="bookName" translatable="false">书名</string>
+    <string name="expectation" translatable="false">期望：</string>
 </resources>

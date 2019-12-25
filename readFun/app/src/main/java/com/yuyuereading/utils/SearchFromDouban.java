@@ -1,7 +1,7 @@
 package com.yuyuereading.utils;
 
 import com.alibaba.fastjson.JSONArray;
-import com.yuyuereading.Model.bean.BookInfo;
+import com.yuyuereading.model.bean.BookInfo;
 
 import java.io.IOException;
 import java.util.ArrayList;

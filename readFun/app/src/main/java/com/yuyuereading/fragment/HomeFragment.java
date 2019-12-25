@@ -1,13 +1,16 @@
 package com.yuyuereading.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.yuyuereading.activity.BookListActivity;
 import com.yuyuereading.R;
@@ -25,13 +28,6 @@ public class HomeFragment extends Fragment {
     HomeFragment homeFragment;
 
     private View view;
-    private Button Allanbooklist;
-    private Button Oscarbooklist;
-    private Button Maobooklist;
-    private Button Nobelbooklist;
-
-    private String mParam1;
-    private String mParam2;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -40,8 +36,8 @@ public class HomeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
     }
@@ -63,13 +59,47 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    @SuppressLint("SetTextI18n")
     private void initView() {
-        Allanbooklist=view.findViewById(R.id.Allan_book_list);
-        Oscarbooklist=view.findViewById(R.id.Oscar_book_list);
-        Maobooklist=view.findViewById(R.id.Mao_book_list);
-        Nobelbooklist=view.findViewById(R.id.Nobel_book_list);
+        TextView date=view.findViewById(R.id.date);
+        Button allanbooklist = view.findViewById(R.id.Allan_book_list);
+        Button oscarbooklist = view.findViewById(R.id.Oscar_book_list);
+        Button maobooklist = view.findViewById(R.id.Mao_book_list);
+        Button nobelbooklist = view.findViewById(R.id.Nobel_book_list);
 
-        Allanbooklist.setOnClickListener(new View.OnClickListener() {
+        Time t=new Time();
+        t.setToNow(); // 取得系统时间。
+        int year=t.year;
+        int month = t.month+1;
+        int day = t.monthDay;
+        int weekDay=t.weekDay;
+        String weekDayZh;
+        switch (weekDay){
+            case 1:
+                weekDayZh="一";
+                break;
+            case 2:
+                weekDayZh="二";
+                break;
+            case 3:
+                weekDayZh="三";
+                break;
+            case 4:
+                weekDayZh="四";
+                break;
+            case 5:
+                weekDayZh="五";
+                break;
+            case 6:
+                weekDayZh="六";
+                break;
+            default:
+                weekDayZh="日";
+                break;
+        }
+        date.setText(year+"年"+month+"月"+day+"日   星期"+weekDayZh);
+
+        allanbooklist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), BookListActivity.class);
@@ -78,7 +108,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        Oscarbooklist.setOnClickListener(new View.OnClickListener() {
+        oscarbooklist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(),BookListActivity.class);
@@ -87,7 +117,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        Maobooklist.setOnClickListener(new View.OnClickListener() {
+        maobooklist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(),BookListActivity.class);
@@ -96,7 +126,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        Nobelbooklist.setOnClickListener(new View.OnClickListener() {
+        nobelbooklist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(),BookListActivity.class);

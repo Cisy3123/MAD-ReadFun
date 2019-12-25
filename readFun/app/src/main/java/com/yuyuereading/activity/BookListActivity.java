@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
-import com.yuyuereading.Model.bean.BookInfo;
+import com.yuyuereading.model.bean.BookInfo;
 import com.yuyuereading.adapter.BookListAdapter;
 import com.yuyuereading.utils.ShakeListener;
 import com.yuyuereading.R;

@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.yuyuereading.Model.bean._User;
+import com.yuyuereading.model.bean._User;
 import com.yuyuereading.utils.AMUtils;
 import com.yuyuereading.utils.HttpUtils;
 import com.yuyuereading.R;

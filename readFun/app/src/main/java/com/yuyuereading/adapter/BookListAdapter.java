@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.willy.ratingbar.ScaleRatingBar;
-import com.yuyuereading.Model.bean.BookInfo;
+import com.yuyuereading.model.bean.BookInfo;
 import com.yuyuereading.activity.BookInfoActivity;
 import com.yuyuereading.activity.ReadingActivity;
 import com.yuyuereading.activity.SeenActivity;

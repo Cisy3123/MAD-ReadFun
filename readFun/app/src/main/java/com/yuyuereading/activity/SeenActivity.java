@@ -35,7 +35,7 @@ public class SeenActivity extends AppCompatActivity {
     }
     private void findView() {
         returnButton=findViewById(R.id.seen_return);
-        classfy=findViewById(R.id.seen_classfy);
+        classfy=findViewById(R.id.seen_classify);
         finishButton=findViewById(R.id.seen_Button);
     }
     private void onClick() {
@@ -63,8 +63,7 @@ public class SeenActivity extends AppCompatActivity {
     private void classfyinit()
     {
         String[] book={"推理悬疑","影视原著","青春言情","经济管理","互联网+","职场提升","成功励志","心理课堂","历史小说","职场小说"};
-        final ArrayList<String> bookcalssfy=new ArrayList<>();
-        bookcalssfy.addAll(Arrays.asList(book).subList(0, 10));
+        final ArrayList<String> bookcalssfy = new ArrayList<>(Arrays.asList(book).subList(0, 10));
         OptionsPickerView classOptions = new OptionsPickerBuilder(this, new OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int option2, int options3 ,View v) {

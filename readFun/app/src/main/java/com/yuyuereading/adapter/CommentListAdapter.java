@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.yuyuereading.Model.bean.BookComment;
+import com.yuyuereading.model.bean.BookComment;
 import com.yuyuereading.activity.CommentActivity;
 import com.yuyuereading.R;
 

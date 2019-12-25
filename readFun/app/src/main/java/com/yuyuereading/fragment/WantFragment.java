@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yuyuereading.Model.bean.BookInfo;
+import com.yuyuereading.model.bean.BookInfo;
 import com.yuyuereading.activity.AddBookActivity;
 import com.yuyuereading.adapter.BookListAdapter;
 import com.yuyuereading.R;
@@ -49,8 +49,6 @@ public class WantFragment extends Fragment {
     private final List<BookInfo> bookInfoList = new ArrayList<>();
 
     private BookListAdapter adapter;
-
-    private LinearLayoutManager mLayoutManager;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -128,7 +126,7 @@ public class WantFragment extends Fragment {
                 refreshList();
             }
         });
-        mLayoutManager = new LinearLayoutManager(this.getActivity());
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         initList();
         addDate();

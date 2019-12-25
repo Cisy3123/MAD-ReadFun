@@ -1,4 +1,4 @@
-package com.yuyuereading.Model.database;
+package com.yuyuereading.model.database;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -17,9 +17,6 @@ import java.util.Map;
 
 
 class MyDatabaseHelper extends SQLiteOpenHelper {
-    //指定数据库的名字和版本号
-    private final String book_info_listview="create table book_info_listview(_id integer primary key autoincrement,icon BLOB,usernick TEXT,rate INTEGER,comment TEXT,data TEXT)";//book_info中用户评论信息的缓存数据库,_id为主码
-    private final String book_info_bookinformation="create table book_info_bookinformation(_id integer primary key autoincrement,book BLOB,bookName TEXT,rate INTEGER,bookScore TEXT,bookWriter TEXT,bookPressName TEXT,bookPressData TEXT,bookISBN TEXT,bookcontext TEXT)";//book_info中图书信息的缓存数据库，表的信息与BookInfoComment类相对应
     private BitmapBytes bb;//Bitmap和byte格式相互转化的类
     public MyDatabaseHelper(Context context, String name,int version) {
         super(context, name, null, version);
@@ -28,8 +25,13 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     //第一次打开软件会创建数据库
     @Override
     public void onCreate(SQLiteDatabase db) {
-            db.execSQL(book_info_bookinformation);
-            db.execSQL(book_info_listview);
+        //book_info中图书信息的缓存数据库，表的信息与BookInfoComment类相对应
+        String book_info_bookinformation = "create table book_info_bookinformation(_id integer primary key autoincrement,book BLOB,bookName TEXT,rate INTEGER,bookScore TEXT,bookWriter TEXT,bookPressName TEXT,bookPressData TEXT,bookISBN TEXT,bookcontext TEXT)";
+        db.execSQL(book_info_bookinformation);
+        //指定数据库的名字和版本号
+        //book_info中用户评论信息的缓存数据库,_id为主码
+        String book_info_listview = "create table book_info_listview(_id integer primary key autoincrement,icon BLOB,usernick TEXT,rate INTEGER,comment TEXT,data TEXT)";
+        db.execSQL(book_info_listview);
     }
     //当数据库修改后会更新数据库
     @Override

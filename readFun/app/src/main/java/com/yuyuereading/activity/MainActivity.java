@@ -39,9 +39,9 @@ import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 import com.ycl.tabview.library.TabView;
 import com.ycl.tabview.library.TabViewChild;
-import com.yuyuereading.Model.bean.BookInfo;
-import com.yuyuereading.Model.bean._User;
-import com.yuyuereading.Model.database.OperationBookInfo;
+import com.yuyuereading.model.bean.BookInfo;
+import com.yuyuereading.model.bean._User;
+import com.yuyuereading.model.database.OperationBookInfo;
 import com.yuyuereading.fragment.HomeFragment;
 import com.yuyuereading.fragment.ReadingFragment;
 import com.yuyuereading.fragment.SeenFragment;
@@ -52,7 +52,7 @@ import com.yuyuereading.utils.HttpUtils;
 import com.yuyuereading.utils.SearchFromDouban;
 import com.yuyuereading.utils.ShakeListener;
 import com.yuyuereading.R;
-import com.yuyuereading.View.CircleImageView;
+import com.yuyuereading.view.CircleImageView;
 
 
 import java.io.IOException;
@@ -68,16 +68,11 @@ public class MainActivity extends AppCompatActivity implements
 
     private Context mContext = MainActivity.this;
     private long exitTime = 0;
-    private Boolean bmob_if_hava_book_info = false;
+    private Boolean bmob_if_have_book_info = false;
     private Toolbar toolbar;
     private DrawerLayout drawer;
-    private View headerLayout;
-    private TabView tabView;
     private MaterialSearchView searchView;
-    private CircleImageView favicon;
-    private TextView nickname;
     private int REQUEST_CODE = 5;
-    private ShakeListener mShakeListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,16 +97,16 @@ public class MainActivity extends AppCompatActivity implements
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        headerLayout = navigationView.getHeaderView(0);
+        View headerLayout = navigationView.getHeaderView(0);
 
-        nickname = headerLayout.findViewById(R.id.nickname);
+        TextView nickname = headerLayout.findViewById(R.id.nickname);
         _User bmobUser = BmobUser.getCurrentUser(_User.class);
         nickname.setText(bmobUser.getUsername());
-        favicon = headerLayout.findViewById(R.id.favicon);
+        CircleImageView favicon = headerLayout.findViewById(R.id.favicon);
     }
 
     private void initShake() {
-        mShakeListener=new ShakeListener(this);
+        ShakeListener mShakeListener = new ShakeListener(this);
         mShakeListener.setOnShakeListener(new ShakeListener.OnShakeListenerCallBack() {
             @Override
             public void onShake() {
@@ -208,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements
         tabViewChildList.add(tabViewChild02);
         tabViewChildList.add(tabViewChild03);
         tabViewChildList.add(tabViewChild04);
-        tabView = findViewById(R.id.tabView);
+        TabView tabView = findViewById(R.id.tabView);
         tabView.setTabViewChild(tabViewChildList,getSupportFragmentManager());
         searchView = findViewById(R.id.search_view);
         searchView.setVoiceSearch(false);
@@ -349,8 +344,8 @@ public class MainActivity extends AppCompatActivity implements
                                             List<BookInfo> list = (List<BookInfo>) msg.obj;
                                             if (list.size() != 0) {
                                                 Log.i("bmob", "handler传送成功:" + list.get(0).getObjectId());
-                                                bmob_if_hava_book_info = true;
-                                                Log.i("bmob", "BookInfo存在状态:" + bmob_if_hava_book_info);
+                                                bmob_if_have_book_info = true;
+                                                Log.i("bmob", "BookInfo存在状态:" + true);
                                                 //如果存在的话就更新
                                                 OperationBookInfo.updateBookInfo(bookInfo);
                                             } else {

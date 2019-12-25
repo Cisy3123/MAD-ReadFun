@@ -12,7 +12,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.yuyuereading.Model.bean.BookComment;
+import com.yuyuereading.model.bean.BookComment;
 import com.yuyuereading.R;
 
 public class CommentActivity extends AppCompatActivity {

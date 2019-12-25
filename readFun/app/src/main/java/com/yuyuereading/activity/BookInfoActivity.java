@@ -20,8 +20,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.yuyuereading.Model.bean.BookComment;
-import com.yuyuereading.Model.bean.BookInfo;
+import com.yuyuereading.model.bean.BookComment;
+import com.yuyuereading.model.bean.BookInfo;
 import com.yuyuereading.adapter.CommentListAdapter;
 import com.yuyuereading.utils.ShakeListener;
 import com.yuyuereading.R;
@@ -159,8 +159,7 @@ public class BookInfoActivity extends AppCompatActivity {
     }
 
     private void changeList() {
-        List<BookComment> orderCommentList=new ArrayList<>();
-        orderCommentList.addAll(bookCommentList);
+        List<BookComment> orderCommentList = new ArrayList<>(bookCommentList);
         bookCommentList.clear();
         for (int i = orderCommentList.size() - 1; i >= 0; i--){
             bookCommentList.add(orderCommentList.get(i));

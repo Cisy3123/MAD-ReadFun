@@ -1,4 +1,4 @@
-package com.yuyuereading.Model.database;
+package com.yuyuereading.model.database;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import java.io.ByteArrayOutputStream;

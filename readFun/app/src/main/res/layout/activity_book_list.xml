@@ -18,7 +18,7 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:src="@mipmap/vertical_line"
-        android:contentDescription="TODO" />
+        android:contentDescription="@null"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
