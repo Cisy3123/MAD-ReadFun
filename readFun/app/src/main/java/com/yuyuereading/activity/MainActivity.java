@@ -66,16 +66,16 @@ public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener, WantFragment.OnFragmentInteractionListener
         , ReadingFragment.OnFragmentInteractionListener, SeenFragment.OnFragmentInteractionListener {
 
-    Context mContext = MainActivity.this;
+    private Context mContext = MainActivity.this;
     private long exitTime = 0;
-    Boolean bmob_if_hava_book_info = false;
-    Toolbar toolbar;
-    DrawerLayout drawer;
-    View headerLayout;
-    TabView tabView;
-    MaterialSearchView searchView;
-    CircleImageView favicon;
-    TextView nickname;
+    private Boolean bmob_if_hava_book_info = false;
+    private Toolbar toolbar;
+    private DrawerLayout drawer;
+    private View headerLayout;
+    private TabView tabView;
+    private MaterialSearchView searchView;
+    private CircleImageView favicon;
+    private TextView nickname;
     private int REQUEST_CODE = 5;
     private ShakeListener mShakeListener;
 
@@ -103,15 +103,7 @@ public class MainActivity extends AppCompatActivity implements
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         headerLayout = navigationView.getHeaderView(0);
-        headerLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*Intent it = new Intent(mContext,UserInfoActivity.class);
-                startActivity(it);
-                overridePendingTransition(R.anim.slide_right_in, R.anim.slide_left_out);*/
-            }
 
-        });
         nickname = headerLayout.findViewById(R.id.nickname);
         _User bmobUser = BmobUser.getCurrentUser(_User.class);
         nickname.setText(bmobUser.getUsername());
@@ -145,11 +137,7 @@ public class MainActivity extends AppCompatActivity implements
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //final ProgressDialog progress = new ProgressDialog(mContext);
-               // progress.setMessage("正在搜索...");
-               // progress.setCanceledOnTouchOutside(false);
-               // progress.show();
-                //Snackbar.make(findViewById(R.id.container), "Query: " + query, Snackbar.LENGTH_LONG).show();
+
                 HttpUtils.doGetAsy("http://139.196.36.97:8080/sbDemo/Book/search?keyword=" + query, new HttpUtils.CallBack() {
                     @Override
                     public void onRequestComplete(String result) {
@@ -357,20 +345,18 @@ public class MainActivity extends AppCompatActivity implements
                                 Handler handler = new Handler(){
                                     @Override
                                     public void handleMessage(Message msg) {
-                                        switch (msg.what) {
-                                            case 0:
-                                                List<BookInfo> list = (List<BookInfo>) msg.obj;
-                                                if (list.size() != 0) {
-                                                    Log.i("bmob", "handler传送成功:" + list.get(0).getObjectId());
-                                                    bmob_if_hava_book_info = true;
-                                                    Log.i("bmob", "BookInfo存在状态:" + bmob_if_hava_book_info);
-                                                    //如果存在的话就更新
-                                                    OperationBookInfo.updateBookInfo(bookInfo);
-                                                } else {
-                                                    //若数据库中没有这本书的信息，就添加
-                                                    OperationBookInfo.addBookInfo(bookInfo);
-                                                }
-                                                break;
+                                        if (msg.what == 0) {
+                                            List<BookInfo> list = (List<BookInfo>) msg.obj;
+                                            if (list.size() != 0) {
+                                                Log.i("bmob", "handler传送成功:" + list.get(0).getObjectId());
+                                                bmob_if_hava_book_info = true;
+                                                Log.i("bmob", "BookInfo存在状态:" + bmob_if_hava_book_info);
+                                                //如果存在的话就更新
+                                                OperationBookInfo.updateBookInfo(bookInfo);
+                                            } else {
+                                                //若数据库中没有这本书的信息，就添加
+                                                OperationBookInfo.addBookInfo(bookInfo);
+                                            }
                                         }
                                     }
                                 };

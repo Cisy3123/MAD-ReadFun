@@ -152,37 +152,7 @@ public class BookInfo extends BmobObject implements Serializable{
         this.book_rating = book_rating;
     }
 
-    public String getBook_author_intro() {
-        return book_author_intro;
-    }
 
-    public void setBook_author_intro(String book_author_intro) {
-        this.book_author_intro = book_author_intro;
-    }
-
-    public String getBook_price() {
-        return book_price;
-    }
-
-    public void setBook_price(String book_price) {
-        this.book_price = book_price;
-    }
-
-    public String getBook_pages() {
-        return book_pages;
-    }
-
-    public void setBook_pages(String book_pages) {
-        this.book_pages = book_pages;
-    }
-
-    public String getBook_tags() {
-        return book_tags;
-    }
-
-    public void setBook_tags(String book_tags) {
-        this.book_tags = book_tags;
-    }
 
     public String getBook_haveReadDay(){return book_haveReadDay;}
 

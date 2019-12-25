@@ -19,6 +19,7 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.yuyuereading.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SeenActivity extends AppCompatActivity {
     Context context=SeenActivity.this;
@@ -63,10 +64,7 @@ public class SeenActivity extends AppCompatActivity {
     {
         String[] book={"推理悬疑","影视原著","青春言情","经济管理","互联网+","职场提升","成功励志","心理课堂","历史小说","职场小说"};
         final ArrayList<String> bookcalssfy=new ArrayList<>();
-        for(int i=0;i<10;i++)
-        {
-            bookcalssfy.add(book[i]);
-        }
+        bookcalssfy.addAll(Arrays.asList(book).subList(0, 10));
         OptionsPickerView classOptions = new OptionsPickerBuilder(this, new OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int option2, int options3 ,View v) {

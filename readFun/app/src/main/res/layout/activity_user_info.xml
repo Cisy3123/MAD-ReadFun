@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="#ddd"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
-    tools:context=".activity.UserInfoActivity">
+    android:gravity="center_horizontal">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +24,6 @@
                 android:layout_marginLeft="10dp"
                 android:background="@android:color/white">
                 <com.yuyuereading.View.CircleImageView
-                    android:id="@+id/user_info_icon"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_centerHorizontal="true"
@@ -48,21 +46,20 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:src="@mipmap/name"
-                    />
+                    android:contentDescription="TODO" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:text="昵称"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     />
                 <TextView
-                    android:id="@+id/user_info_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="300dp"/>
+                    android:layout_marginStart="300dp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,19 +73,19 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:src="@mipmap/school"/>
+                    android:layout_marginStart="10dp"
+                    android:src="@mipmap/school"
+                    android:contentDescription="TODO" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:text="简介"
-                    android:layout_marginLeft="15dp"/>
+                    android:layout_marginStart="15dp"/>
                 <TextView
-                    android:id="@+id/user_info_school"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="300dp"
+                    android:layout_marginStart="300dp"
                     />
             </LinearLayout>
             <LinearLayout
@@ -103,19 +100,19 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:src="@mipmap/major"/>
+                    android:layout_marginStart="10dp"
+                    android:src="@mipmap/major"
+                    android:contentDescription="TODO" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:text="书籍偏好"
-                    android:layout_marginLeft="15dp"/>
+                    android:layout_marginStart="15dp"/>
                 <TextView
-                    android:id="@+id/user_info_major"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="300dp"
+                    android:layout_marginStart="300dp"
                     />
             </LinearLayout>
             <LinearLayout
@@ -130,19 +127,19 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:src="@mipmap/telephone"/>
+                    android:layout_marginStart="10dp"
+                    android:src="@mipmap/telephone"
+                    android:contentDescription="TODO" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:text="联系邮箱"
-                    android:layout_marginLeft="15dp"/>
+                    android:layout_marginStart="15dp"/>
                 <TextView
-                    android:id="@+id/user_info_telephone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="300dp"
+                    android:layout_marginStart="300dp"
                     />
             </LinearLayout>
             <LinearLayout
@@ -157,19 +154,19 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:src="@mipmap/state"/>
+                    android:layout_marginStart="10dp"
+                    android:src="@mipmap/state"
+                    android:contentDescription="TODO" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:text="状态"
-                    android:layout_marginLeft="15dp"/>
+                    android:layout_marginStart="15dp"/>
                 <TextView
-                    android:id="@+id/user_info_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="300dp"
+                    android:layout_marginStart="300dp"
                     />
             </LinearLayout>
             <LinearLayout

@@ -15,13 +15,11 @@ public class BitmapBytes {
         //Bitmap bm = BitmapFactory.decodeResource(context.getResources(),R.mipmap.text);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        byte[] result = baos.toByteArray();
-        return  result;
+        return baos.toByteArray();
     }
     //将图片从数据库中取出
     public Bitmap bytesIntobitmap(byte[] in)
     {
-        Bitmap bmpout = BitmapFactory.decodeByteArray(in, 0, in.length);
-        return bmpout;
+        return BitmapFactory.decodeByteArray(in, 0, in.length);
     }
 }

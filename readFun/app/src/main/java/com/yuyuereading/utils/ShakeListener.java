@@ -11,7 +11,7 @@ public class ShakeListener implements SensorEventListener {
     // 速度阈值，当摇晃速度达到这值后产生作用
     private static final int SPEED_SHRESHOLD = 3000;
     // 两次检测的时间间隔
-    private static final int UPTATE_INTERVAL_TIME = 170;
+    private static final int UPDATE_INTERVAL_TIME = 170;
     // 传感器管理器
     private SensorManager sensorManager;
     // 传感器
@@ -19,7 +19,7 @@ public class ShakeListener implements SensorEventListener {
     // 重力感应监听器
     private OnShakeListenerCallBack onShakeListener;
     // 上下文
-    private Context mContext;
+    private final Context mContext;
     // 手机上一个位置时重力感应坐标
     private float lastX;
     private float lastY;
@@ -37,7 +37,7 @@ public class ShakeListener implements SensorEventListener {
     /**
      * 开始重力传感器的检测
      */
-    public void start() {
+    private void start() {
         // 获得传感器管理器
         sensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
         if (sensorManager != null) {
@@ -68,7 +68,7 @@ public class ShakeListener implements SensorEventListener {
         long timeInterval = currentUpdateTime - lastUpdateTime;
 
         // 判断是否达到了检测时间间隔
-        if (timeInterval < UPTATE_INTERVAL_TIME)
+        if (timeInterval < UPDATE_INTERVAL_TIME)
             return;
         // 现在的时间变成last时间
         lastUpdateTime = currentUpdateTime;
@@ -105,7 +105,7 @@ public class ShakeListener implements SensorEventListener {
      * 摇晃监听接口
      */
     public interface OnShakeListenerCallBack {
-        public void onShake();
+        void onShake();
     }
 
     /**

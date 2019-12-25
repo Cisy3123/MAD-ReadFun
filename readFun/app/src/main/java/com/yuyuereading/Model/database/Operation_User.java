@@ -5,5 +5,5 @@ package com.yuyuereading.Model.database;
  * 数据库操作类
  */
 
-public class Operation_User {
+class Operation_User {
 }

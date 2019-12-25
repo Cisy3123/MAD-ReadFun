@@ -9,8 +9,6 @@ import com.yuyuereading.R;
 
 public class ShakeActivity extends AppCompatActivity {
 
-    private Button back;
-
     public void onBackPressed() {
         finish();
     }
@@ -22,7 +20,7 @@ public class ShakeActivity extends AppCompatActivity {
         initView();
     }
     private void initView() {
-        back=findViewById(R.id.sentence_return);
+        Button back = findViewById(R.id.sentence_return);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

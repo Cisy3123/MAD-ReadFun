@@ -17,11 +17,12 @@
             android:id="@+id/want_read_return"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@mipmap/returnbutton"/>
+            android:background="@mipmap/return_button"/>
         <ImageView
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:src="@mipmap/verticalline" />
+            android:src="@mipmap/vertical_line"
+            android:contentDescription="TODO" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

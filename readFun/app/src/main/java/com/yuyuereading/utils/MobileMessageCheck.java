@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class MobileMessageCheck {
+class MobileMessageCheck {
     private static final String SERVER_URL="https://api.netease.im/sms/verifycode.action";//请求的URL
     private static final String APP_KEY="0d24f47090a642edb13393c25d361f37";//账号
     private static final String APP_SECRET="58d6f3ab4344";//密码

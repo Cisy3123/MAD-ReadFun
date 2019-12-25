@@ -15,11 +15,12 @@
             android:id="@+id/reading_return_button"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@mipmap/returnbutton"/>
+            android:background="@mipmap/return_button"/>
         <ImageView
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:src="@mipmap/verticalline" />
+            android:src="@mipmap/vertical_line"
+            android:contentDescription="TODO" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -125,7 +126,7 @@
                         android:id="@+id/reading_way"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:entries="@array/readway" />
+                        android:entries="@array/read_way" />
                 </LinearLayout>
 
                 <LinearLayout

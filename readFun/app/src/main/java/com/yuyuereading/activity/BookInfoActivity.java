@@ -27,6 +27,7 @@ import com.yuyuereading.utils.ShakeListener;
 import com.yuyuereading.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -116,8 +117,7 @@ public class BookInfoActivity extends AppCompatActivity {
     //获取评论信息
     private void initList() {
         bookCommentList.clear();
-        for (int i = 0; i < bookComments.length;i++) {
-            bookCommentList.add(bookComments[i]);}
+        Collections.addAll(bookCommentList, bookComments);
     }
 
     //向评论adapter中添加数据

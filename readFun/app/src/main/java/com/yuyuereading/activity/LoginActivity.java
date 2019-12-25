@@ -35,10 +35,13 @@ import cn.bmob.v3.listener.QueryListener;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Context mContext = LoginActivity.this;
-    EditText phoneNumber,verification;
-    Button delete,getverification,loginButton;
-    MyCountTimer timer;
+    private Context mContext = LoginActivity.this;
+    private EditText phoneNumber;
+    private EditText verification;
+    private Button delete;
+    private Button getverification;
+    private Button loginButton;
+    private MyCountTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
                 //如果输入的手机号不为空的话
                 if (!TextUtils.isEmpty(number)) {
 
-                    timer = new MyCountTimer(60000, 1000);
+                    timer = new MyCountTimer();
                     timer.start();
                     //请求发送验证码
                     BmobSMS.requestSMSCode(phoneNumber.getText().toString(), "登录验证", new QueryListener<Integer>() {
@@ -196,8 +199,8 @@ public class LoginActivity extends AppCompatActivity {
     //按钮效果
     private class MyCountTimer extends CountDownTimer {
 
-        MyCountTimer(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
+        MyCountTimer() {
+            super((long) 60000, (long) 1000);
         }
         @SuppressLint("SetTextI18n")
         @Override
@@ -215,5 +218,5 @@ public class LoginActivity extends AppCompatActivity {
 
     protected void onDestroy() {
         super.onDestroy();
-    };
+    }
 }

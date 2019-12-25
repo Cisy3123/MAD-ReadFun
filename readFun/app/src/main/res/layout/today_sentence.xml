@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -15,12 +14,13 @@
             android:id="@+id/sentence_return"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@mipmap/returnbutton"/>
+            android:background="@mipmap/return_button"/>
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:src="@mipmap/verticalline" />
+            android:src="@mipmap/vertical_line"
+            android:contentDescription="TODO" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,11 +30,11 @@
     </android.support.v7.widget.Toolbar>
 
     <ImageView
-    android:id="@+id/today"
-    android:layout_width="match_parent"
+        android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scaleType="centerCrop"
-    app:srcCompat="@drawable/today_sentence"/>
+    app:srcCompat="@drawable/today_sentence"
+        android:contentDescription="TODO" />
 
 
 

@@ -39,16 +39,16 @@ public class ReadingFragment extends Fragment {
 
     private FloatingActionButton addBook;
 
-    private BookInfo[] bookInfos = {new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2019-11-17","8.1","严歌苓","人民文学出版社","jianjie"),
+    private final BookInfo[] bookInfos = {new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2019-11-17","8.1","严歌苓","人民文学出版社","jianjie"),
             new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2019-11-17","8.1","严歌苓","人民文学出版社","jianjie"),
             new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2019-11-17","8.1","严歌苓","人民文学出版社","jianjie"),
             new BookInfo("https://img3.doubanio.com/lpic/s29418322.jpg","芳华","2019-11-17","8.1","严歌苓","人民文学出版社","jianjie")};
 
-    private List<BookInfo> bookInfoList = new ArrayList<>();
+    private final List<BookInfo> bookInfoList = new ArrayList<>();
 
     private BookListAdapter adapter;
 
-    LinearLayoutManager mLayoutManager;
+    private LinearLayoutManager mLayoutManager;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

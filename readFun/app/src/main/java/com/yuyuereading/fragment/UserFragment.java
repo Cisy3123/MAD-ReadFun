@@ -10,11 +10,6 @@ import android.widget.Button;
 import com.yuyuereading.R;
 
 public class UserFragment extends Fragment {
-    UserFragment userFragment;
-    Button userReturn;
-
-    private String mParam1;
-    private String mParam2;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -23,8 +18,8 @@ public class UserFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
     }
@@ -41,7 +36,6 @@ public class UserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.activity_user_info, container, false);
-        return view;
+        return inflater.inflate(R.layout.activity_user_info, container, false);
     }
 }

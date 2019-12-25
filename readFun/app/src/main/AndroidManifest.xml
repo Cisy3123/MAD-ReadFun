@@ -41,7 +41,6 @@
         <activity android:name=".activity.ReadingActivity" />
         <activity android:name=".activity.SeenActivity" />
         <activity android:name=".activity.ScanISBN" />
-        <activity android:name=".activity.UserInfoActivity" />
         <activity android:name=".activity.CommentActivity" />
         <activity android:name=".activity.ShakeActivity" />
         <activity android:name=".activity.StatisticActivity" />

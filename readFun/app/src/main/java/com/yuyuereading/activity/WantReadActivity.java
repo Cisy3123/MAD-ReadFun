@@ -23,15 +23,19 @@ import cn.bmob.v3.BmobUser;
 
 public class WantReadActivity extends AppCompatActivity {
 
-    Boolean bmob_if_hava_read_info = false;
+    private Boolean bmob_if_hava_read_info = false;
     Context context=WantReadActivity.this;
-    Button returnButton,wantButton;
-    String book_isbn,book_score;
-    ScaleRatingBar bookRating;
-    EditText wantReason,wantHope;
-    ReadInfo readInfo,readInfo2;
-    TextView book_name;
-    String bookName;
+    private Button returnButton;
+    private Button wantButton;
+    private String book_isbn;
+    String book_score;
+    private ScaleRatingBar bookRating;
+    private EditText wantReason;
+    private EditText wantHope;
+    private ReadInfo readInfo;
+    ReadInfo readInfo2;
+    private TextView book_name;
+    private String bookName;
 
 
     @Override
@@ -53,17 +57,15 @@ public class WantReadActivity extends AppCompatActivity {
         Handler handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
-                switch (msg.what) {
-                    case 0:
-                        List<ReadInfo> list = (List<ReadInfo>) msg.obj;
-                        if (list.size()!=0) {
-                            readInfo = list.get(0);
-                            //Log.i("bmob","handler传送成功:"+readInfo.getObjectId());
-                            wantReason.setText(readInfo.getRead_reason());
-                            wantHope.setText(readInfo.getRead_except());
-                            bmob_if_hava_read_info = true;
-                        }
-                        break;
+                if (msg.what == 0) {
+                    List<ReadInfo> list = (List<ReadInfo>) msg.obj;
+                    if (list.size() != 0) {
+                        readInfo = list.get(0);
+                        //Log.i("bmob","handler传送成功:"+readInfo.getObjectId());
+                        wantReason.setText(readInfo.getRead_reason());
+                        wantHope.setText(readInfo.getRead_except());
+                        bmob_if_hava_read_info = true;
+                    }
                 }
             }
         };
@@ -83,25 +85,6 @@ public class WantReadActivity extends AppCompatActivity {
         wantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
-                final ProgressDialog progress = new ProgressDialog(context);
-                progress.setMessage("正在记录...");
-                progress.setCanceledOnTouchOutside(false);
-                progress.show();
-
-                Integer read_state = 0;
-                String want_read_reason = wantReason.getText().toString();
-                String want_read_hope = wantHope.getText().toString();
-                _User bmobUser = BmobUser.getCurrentUser(_User.class);
-                readInfo2 = new ReadInfo(bmobUser, book_isbn, read_state, want_read_reason, want_read_hope, new BmobDate(new Date(System.currentTimeMillis())));
-                Log.i("bmob","现在ReadInfo状态:"+bmob_if_hava_read_info);
-                if (!bmob_if_hava_read_info) {
-                    OperationReadInfo.addReadInfo(readInfo2);
-                    progress.dismiss();
-                } else {
-                    OperationReadInfo.updateReadInfo(readInfo2);
-                    progress.dismiss();
-                }*/
                 finish();
             }
         });

@@ -28,9 +28,9 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
 
     private Context mContext;
 
-    private List<BookInfo> mBookInfoList;
+    private final List<BookInfo> mBookInfoList;
 
-    private String mStatus;
+    private final String mStatus;
 
     //构造方法
     public BookListAdapter(List<BookInfo> bookInfoList,String status) {
@@ -133,12 +133,15 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        CardView cardView;
+        final CardView cardView;
         Button button;
-        View mItemView;
-        ImageView bookImage;
+        final View mItemView;
+        final ImageView bookImage;
         ScaleRatingBar simpleRatingBar;
-        TextView bookName,rating,authorName,publicName;
+        final TextView bookName;
+        TextView rating;
+        final TextView authorName;
+        final TextView publicName;
 
         ViewHolder(View itemView) {
             super(itemView);

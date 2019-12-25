@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MobileMessageSend {
+class MobileMessageSend {
     //发送验证码的请求路径URL
     private static final String SERVER_URL="https://api.netease.im/sms/sendcode.action";
     private static final String APP_KEY="0d24f47090a642edb13393c25d361f37";//账号

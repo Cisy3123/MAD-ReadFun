@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class BookComment implements Serializable {
     private String read_review;
 
-    private  String page_update;
+    private final String page_update;
 
     private String finish_time;
 

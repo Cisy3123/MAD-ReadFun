@@ -13,7 +13,7 @@
             android:id="@+id/book_info_return"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@mipmap/returnbutton" />
+            android:background="@mipmap/return_button" />
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"

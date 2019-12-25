@@ -10,7 +10,6 @@ import com.yuyuereading.R;
 
 public class StatisticActivity extends AppCompatActivity {
 
-    private Button back;
     private TextView sumBook;
     private TextView sumDay;
     private TextView sumSeen;
@@ -22,7 +21,7 @@ public class StatisticActivity extends AppCompatActivity {
         setContentView(R.layout.activity_statistic);
         initView();
         getData();
-        back=findViewById(R.id.statistic_return);
+        Button back = findViewById(R.id.statistic_return);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,10 +31,10 @@ public class StatisticActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        sumBook.setText("13本");
-        sumRecord.setText("50条");
-        sumDay.setText("86天");
-        sumSeen.setText("8本");
+        sumBook.setText("1本");
+        sumRecord.setText("6条");
+        sumDay.setText("4天");
+        sumSeen.setText("0本");
     }
 
     private void initView() {

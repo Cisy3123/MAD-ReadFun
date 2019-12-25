@@ -16,12 +16,13 @@
             android:id="@+id/statistic_return"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@mipmap/returnbutton"/>
+            android:background="@mipmap/return_button"/>
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:src="@mipmap/verticalline" />
+            android:src="@mipmap/vertical_line"
+            android:contentDescription="TODO" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,8 +39,8 @@
         android:id="@+id/sum_read"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:paddingLeft="80dp"
+        android:paddingRight="30dp"
+        android:paddingStart="50dp"
         android:text="总阅读量"
         android:textSize="24sp"/>
 
@@ -48,8 +49,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="阅读天数"
-            android:paddingLeft="80dp"
-            android:layout_toRightOf="@id/sum_read"
+            android:paddingRight="30dp"
+            android:paddingLeft="50dp"
+            android:layout_toEndOf="@id/sum_read"
             android:textSize="24sp"/>
 
     <TextView
@@ -58,7 +60,8 @@
         android:layout_height="wrap_content"
         android:text="0本"
         android:layout_marginTop="10dp"
-        android:paddingLeft="80dp"
+        android:paddingStart="70dp"
+        android:paddingRight="10dp"
         android:layout_below="@+id/sum_read"
         android:textColor="@color/black"
         android:textSize="24sp"/>
@@ -67,10 +70,11 @@
         android:id="@+id/sum_days"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="80dp"
+        android:paddingStart="70dp"
+        android:paddingRight="10dp"
         android:text="0天"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/sum_read"
+        android:layout_toEndOf="@id/sum_read"
         android:layout_below="@+id/sum_day"
         android:textColor="@color/black"
         android:textSize="24sp"/>
@@ -80,7 +84,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/sum_book"
-        android:paddingLeft="80dp"
+        android:paddingRight="30dp"
+        android:paddingLeft="50dp"
         android:text="已读完"
         android:layout_marginTop="10dp"
         android:textSize="24sp"/>
@@ -89,10 +94,11 @@
             android:id="@+id/record"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="80dp"
+            android:paddingRight="30dp"
+            android:paddingLeft="50dp"
             android:text="记录书摘"
             android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/sum_read"
+            android:layout_toEndOf="@+id/sum_read"
             android:layout_below="@id/sum_days"
             android:textSize="24sp"/>
 
@@ -100,7 +106,8 @@
         android:id="@+id/seen_book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="80dp"
+        android:paddingStart="70dp"
+        android:paddingRight="10dp"
         android:text="0本"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/seen"
@@ -113,9 +120,10 @@
         android:layout_height="wrap_content"
         android:text="0条"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/sum_read"
+        android:layout_toEndOf="@+id/sum_read"
         android:layout_below="@+id/record"
-        android:paddingLeft="80dp"
+        android:paddingStart="70dp"
+        android:paddingRight="10dp"
         android:textColor="@color/black"
         android:textSize="24sp"/>
 

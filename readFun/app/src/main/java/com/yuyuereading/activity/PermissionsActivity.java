@@ -18,7 +18,7 @@ import com.yuyuereading.R;
 
 public class PermissionsActivity extends AppCompatActivity {
 
-    public static final int PERMISSIONS_GRANTED = 0;        // 权限授权
+    private static final int PERMISSIONS_GRANTED = 0;        // 权限授权
     public static final int PERMISSIONS_DENIED = 1;         // 权限拒绝
 
     private static final int PERMISSION_REQUEST_CODE = 0;   // 系统权限管理页面的参数
