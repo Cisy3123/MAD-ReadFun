@@ -8,8 +8,8 @@
       <arg column="author" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="image" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="type" jdbcType="TINYINT" javaType="java.lang.Byte" />
-      <arg column="publisher" jdbcType="VARCHAR" javaType="java.lang.String"/>
       <arg column="summary" jdbcType="VARCHAR" javaType="java.lang.String"/>
+      <arg column="publisher" jdbcType="VARCHAR" javaType="java.lang.String"/>
       <arg column="ranking" jdbcType="VARCHAR" javaType="java.lang.String"/>
       <arg column="category" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
@@ -17,13 +17,13 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, author, image, type, category, create_time, update_time
+    id, title, author, image, type, summary, publisher, ranking, category, create_time, update_time
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Byte" >
     select 
     <include refid="Base_Column_List" />
     from booklist
-    where id = #{id,jdbcType=BIGINT}
+    where type = #{type,jdbcType=TINYINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from booklist

@@ -13,9 +13,9 @@ public class Booklist {
 
     private Byte type;
 
-    private String publisher;
-
     private String summary;
+
+    private String publisher;
 
     private String ranking;
 
@@ -25,14 +25,14 @@ public class Booklist {
 
     private Date updateTime;
 
-    public Booklist(Long id, String title, String author, String image, Byte type, String publisher, String summary, String ranking, String category, Date createTime, Date updateTime) {
+    public Booklist(Long id, String title, String author, String image, Byte type, String summary, String publisher, String ranking, String category, Date createTime, Date updateTime) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.image = image;
         this.type = type;
-        this.publisher = publisher;
         this.summary = summary;
+        this.publisher = publisher;
         this.ranking = ranking;
         this.category = category;
         this.createTime = createTime;

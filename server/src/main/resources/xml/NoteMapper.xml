@@ -3,7 +3,8 @@
 <mapper namespace="com.lcl.demo.sbDemo.dao.NoteMapper" >
   <resultMap id="BaseResultMap" type="com.lcl.demo.sbDemo.entity.Note" >
     <constructor >
-      <idArg column="note_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <idArg column="user_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <idArg column="book_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="date" jdbcType="DATE" javaType="java.util.Date" />
       <arg column="begin_page" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="end_page" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -13,25 +14,24 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    note_id, date, begin_page, end_page, content, create_time, update_time
+    user_id, book_id, date, begin_page, end_page, content, create_time, update_time
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="select" resultMap="BaseResultMap" >
     select 
     <include refid="Base_Column_List" />
     from note
-    where note_id = #{noteId,jdbcType=BIGINT}
+    where user_id = #{userId,jdbcType=BIGINT}
+    and book_id = #{bookId,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from note
     where note_id = #{noteId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.lcl.demo.sbDemo.entity.Note" >
-    insert into note (note_id, date, begin_page, 
-      end_page, content, create_time, 
-      update_time)
-    values (#{noteId,jdbcType=BIGINT}, #{date,jdbcType=DATE}, #{beginPage,jdbcType=INTEGER}, 
-      #{endPage,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+  <insert id="insert" >
+    insert into note (user_id, book_id, begin_page,
+      end_page, content)
+    values (#{userId,jdbcType=BIGINT}, #{bookId,jdbcType=BIGINT}, #{beginPage,jdbcType=INTEGER},
+      #{endPage,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.lcl.demo.sbDemo.entity.Note" >
     insert into note

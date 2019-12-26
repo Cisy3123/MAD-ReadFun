@@ -3,18 +3,16 @@
 <mapper namespace="com.lcl.demo.sbDemo.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="com.lcl.demo.sbDemo.entity.User" >
     <constructor >
-      <idArg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <idArg column="user_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="auth" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="auth" jdbcType="TINYINT" javaType="java.lang.Byte" />
       <arg column="portrait" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="email" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    user_id, name, auth, password, portrait, email, create_time, update_time
+    user_id, name, auth, portrait, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -26,13 +24,9 @@
     delete from user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lcl.demo.sbDemo.entity.User" >
-    insert into user (user_id, name, auth, 
-      password, portrait, email, 
-      create_time, update_time)
-    values (#{userId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{auth,jdbcType=INTEGER}, 
-      #{password,jdbcType=VARCHAR}, #{portrait,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  <insert id="insert" parameterType="java.lang.Long" >
+    insert into user (user_id)
+    values (#{userId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.lcl.demo.sbDemo.entity.User" >
     insert into user
@@ -116,15 +110,16 @@
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lcl.demo.sbDemo.entity.User" >
+  <update id="updateNameById">
     update user
-    set name = #{name,jdbcType=VARCHAR},
-      auth = #{auth,jdbcType=INTEGER},
-      password = #{password,jdbcType=VARCHAR},
-      portrait = #{portrait,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where user_id = #{userId,jdbcType=INTEGER}
+    set name = #{name,jdbcType=VARCHAR}
+<!--      portrait = #{portrait,jdbcType=VARCHAR},-->
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+  <update id="updatePortraitById">
+    update user
+<!--    set name = #{name,jdbcType=VARCHAR}-->
+    set portrait = #{portrait,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=BIGINT}
   </update>
 </mapper>
