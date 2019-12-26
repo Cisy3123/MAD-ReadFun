@@ -4,7 +4,7 @@
 
 主要研究内容为：
 
-(1)完成用户阅读书目，阅读进度，阅读感受的简便记录，使用户清晰系统地了解自己    的阅读历程。
+(1)完成用户阅读书目，阅读进度，阅读感受的简便记录，使用户清晰系统地了解自己的阅读历程。
 
 (2)进行用户阅读统计，使用户掌握自己的读书速度与阅读偏好，促进用户与他人的分享及进行阅读方向的选择。
 
@@ -13,8 +13,7 @@
 # 功能需求
 
 ## 用例图
-
-![OIGN~N$~9LGM8H@ZKH`RZ(C](file:///C:\Users\ASUS-PC\AppData\Local\Temp\msohtmlclip1\01\clip_image002.jpg)
+![usecase](https://github.com/Cisy3123/ReadFun/blob/master/png/%7D%7BSX%7D6QP%7B2U_ZCSYRT3GXCN.png)
 
 完成情况：
 
@@ -52,37 +51,26 @@
 
 用户可以通过手机验证码登录。
 
-![登录](file:///C:\Users\ASUS-PC\AppData\Local\Temp\msohtmlclip1\01\clip_image004.gif)
-
-
+![登录](https://github.com/Cisy3123/ReadFun/blob/master/png/CV@LZOSQTNY[OC@(SFFSF]E.png)
 
 ### 录入书籍信息
 
 用户可以手动录入书籍信息。
 
-![录入](file:///C:\Users\ASUS-PC\AppData\Local\Temp\msohtmlclip1\01\clip_image006.gif)
-
- 
-
- 
-
- 
-
- 
-
- 
+![录入](https://github.com/Cisy3123/ReadFun/blob/master/png/O)~WB7$V7K~KT6M4~T)3_6L.png)
 
 用户也可进行图书搜索。在输入框内输入书名关键字，可模糊搜索到书籍。
 
-![img](file:///C:\Users\ASUS-PC\AppData\Local\Temp\msohtmlclip1\01\clip_image008.gif)![img](file:///C:\Users\ASUS-PC\AppData\Local\Temp\msohtmlclip1\01\clip_image010.gif)
+![img](https://github.com/Cisy3123/ReadFun/blob/master/png/4{RVB)$M9V_9SV2%VO609AU.png)
 
-![img](file:///C:\Users\ASUS-PC\AppData\Local\Temp\msohtmlclip1\01\clip_image012.gif)
+![img](https://github.com/Cisy3123/ReadFun/blob/master/png/@X76FB7%)C@{5}M19HO6]`E.png)
+
+![img](https://github.com/Cisy3123/ReadFun/blob/master/png/}WMZ)P}7R3@QDG4L2WQ44_L.png)
 
 此处我们进行模拟数据的搜索。数据如下：
 
-![img](file:///C:\Users\ASUS-PC\AppData\Local\Temp\msohtmlclip1\01\clip_image014.jpg)
+![img](https://github.com/Cisy3123/ReadFun/blob/master/png/[5BF5K~}5ZEFZK~{B$JUT{R.png)
 
- 
 
 ### 管理阅读进度
 
