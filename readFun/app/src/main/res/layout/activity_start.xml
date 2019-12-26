@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".activity.StartActivity">
+    tools:context="com.yuyuereading.presenter.activity.StartActivity">
 
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:srcCompat="@drawable/app_start"
-        android:scaleType="fitCenter"
-        android:contentDescription="@null"/>
+        android:id="@+id/imageView"
+        android:scaleType="fitCenter" />
 </LinearLayout>

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="5dp"
     app:cardCornerRadius="4dp">
 
@@ -32,7 +33,7 @@
                     android:layout_height="186dp"
                     android:layout_margin="10dp"
                     android:scaleType="fitCenter"
-                    android:contentDescription="@string/bookImage" />
+                    android:contentDescription="@string/bookimage" />
 
                 <LinearLayout
                     android:layout_gravity="center_vertical"

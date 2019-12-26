@@ -138,24 +138,26 @@ public class OperationReadInfo {
         final Handler handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
-                if (msg.what == 0) {
-                    List<ReadInfo> list = (List<ReadInfo>) msg.obj;
-                    if (list != null) {
-                        queryResult[0] = list.get(0);
-                        readInfo.update(queryResult[0].getObjectId(), new UpdateListener() {
-                            @Override
-                            public void done(BmobException e) {
-                                if (e == null) {
-                                    update[0] = true;
-                                    Log.i("bmob", "更新成功");
-                                } else {
-                                    update[0] = false;
-                                    Log.i("bmob", "更新失败：" + e.getMessage() + "," + e.getErrorCode());
+                switch (msg.what) {
+                    case 0:
+                        List<ReadInfo> list = (List<ReadInfo>) msg.obj;
+                        if (list != null) {
+                            queryResult[0] = list.get(0);
+                            readInfo.update(queryResult[0].getObjectId(), new UpdateListener() {
+                                @Override
+                                public void done(BmobException e) {
+                                    if(e==null){
+                                        update[0] = true;
+                                        Log.i("bmob","更新成功");
+                                    }else{
+                                        update[0] = false;
+                                        Log.i("bmob","更新失败："+e.getMessage()+","+e.getErrorCode());
+                                    }
                                 }
-                            }
 
-                        });
-                    }
+                            });
+                        }
+                        break;
                 }
             }
         };
@@ -177,11 +179,13 @@ public class OperationReadInfo {
         final Handler handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
-                if (msg.what == 0) {
-                    List<ReadInfo> list = (List<ReadInfo>) msg.obj;
-                    if (list != null) {
-                        queryResult[0] = list.get(0);
-                    }
+                switch (msg.what) {
+                    case 0:
+                        List<ReadInfo> list = (List<ReadInfo>) msg.obj;
+                        if (list != null) {
+                            queryResult[0] = list.get(0);
+                        }
+                        break;
                 }
             }
         };

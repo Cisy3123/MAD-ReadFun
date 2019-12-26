@@ -15,12 +15,11 @@
             android:id="@+id/reading_return_button"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@mipmap/return_button"/>
+            android:background="@mipmap/returnbutton"/>
         <ImageView
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:src="@mipmap/vertical_line"
-            android:contentDescription="@null" />
+            android:src="@mipmap/verticalline" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -126,7 +125,7 @@
                         android:id="@+id/reading_way"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:entries="@array/read_way" />
+                        android:entries="@array/readway" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -145,12 +144,12 @@
                         tools:ignore="RtlHardcoded" />
 
                     <TextView
-                        android:id="@+id/reading_classify"
+                        android:id="@+id/reading_classfy"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:gravity="center_vertical"
-                        android:hint="@string/classify" />
+                        android:hint="点击选择图书分类" />
                 </LinearLayout>
 
                 <Button
@@ -162,9 +161,9 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@color/grgray"
-                    android:text="@string/finishCom"
+                    android:text="完成记录"
                     android:textColor="#fff"
-                    android:textSize="16sp" />
+                    android:textSize="16dp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </ScrollView>

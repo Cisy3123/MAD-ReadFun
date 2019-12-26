@@ -7,7 +7,7 @@
     android:background="#ddd"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".activity.WantReadActivity">
+    tools:context=".presenter.activity.WantReadActivity">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -17,16 +17,15 @@
             android:id="@+id/want_read_return"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@mipmap/return_button"/>
+            android:background="@mipmap/returnbutton"/>
         <ImageView
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:src="@mipmap/vertical_line"
-            android:contentDescription="@null"/>
+            android:src="@mipmap/verticalline" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/want"
+            android:text="想读"
             android:textSize="20sp"
             android:textColor="@android:color/black"/>
     </android.support.v7.widget.Toolbar>
@@ -55,7 +54,7 @@
                     android:id="@+id/book_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/bookName"
+                    android:text="书名"
                     android:textSize="24sp"/>
 
                 <LinearLayout
@@ -77,7 +76,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:hint="@string/inputPlz"
+                        android:hint="请输入内容"
                         android:background="@null"
                         android:textSize="16sp"
                         android:textColor="@android:color/darker_gray"
@@ -95,7 +94,7 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="match_parent"
-                        android:text="@string/expectation"
+                        android:text="期望："
                         android:textSize="16sp"
                         android:textColor="@android:color/background_dark"
                         android:gravity="right|center_vertical"

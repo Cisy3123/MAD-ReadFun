@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#eee"
-    tools:context=".activity.BookInfoActivity">
+    tools:context="com.yuyuereading.presenter.activity.BookInfoActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -16,7 +16,7 @@
             android:id="@+id/book_info_return"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@mipmap/return_button" />
+            android:background="@mipmap/returnbutton" />
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
 
                 <TextView
                     android:id="@+id/book_name"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -68,7 +68,7 @@
 
                 <TextView
                     android:id="@+id/author_name"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -91,7 +91,7 @@
 
                 <TextView
                     android:id="@+id/isbn"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -114,7 +114,7 @@
 
                 <TextView
                     android:id="@+id/public_name"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"

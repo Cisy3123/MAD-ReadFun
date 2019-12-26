@@ -7,7 +7,7 @@
     android:background="#ddd"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".activity.SeenActivity">
+    tools:context=".presenter.activity.SeenActivity">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,17 +16,16 @@
             android:id="@+id/seen_return"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@mipmap/return_button"/>
+            android:background="@mipmap/returnbutton"/>
         <ImageView
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:src="@mipmap/vertical_line"
-            android:contentDescription="@null" />
+            android:src="@mipmap/verticalline" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="已读记录"
-            android:textSize="20sp"
+            android:textSize="20dp"
             android:textColor="@android:color/black"/>
     </android.support.v7.widget.Toolbar>
     <ScrollView
@@ -52,7 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textSize="20sp"
+                    android:textSize="20dp"
                     android:text="评分"
                     android:gravity="center_horizontal"
                     android:textColor="@android:color/black"/>
@@ -85,15 +84,16 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:text="书评："
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:textColor="@android:color/background_dark"
-                        android:gravity="end|center_vertical"
+                        android:gravity="right|center_vertical"
                         />
                     <com.sendtion.xrichtext.RichTextEditor
+                        android:id="@+id/seen_comment"
                         android:layout_height="match_parent"
                         android:layout_width="match_parent"
                         android:layout_marginEnd="10dp"
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:textColor="@android:color/darker_gray"
                         android:background="@drawable/bg_border"/>
                 </LinearLayout>
@@ -107,14 +107,15 @@
                         android:layout_width="80dp"
                         android:layout_height="40dp"
                         android:text="时间："
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:textColor="@android:color/background_dark"
-                        android:gravity="end|center_vertical"
+                        android:gravity="right|center_vertical"
                         />
                     <Spinner
+                        android:id="@+id/seen_date"
                         android:layout_width="200dp"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="50dp"
+                        android:layout_marginLeft="50dp"
                         android:entries="@array/seen_date"
                         >
                     </Spinner>
@@ -129,15 +130,16 @@
                         android:layout_width="80dp"
                         android:layout_height="40dp"
                         android:text="方式："
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:textColor="@android:color/background_dark"
-                        android:gravity="end|center_vertical"
+                        android:gravity="right|center_vertical"
                         />
                     <Spinner
+                        android:id="@+id/seen_way"
                         android:layout_width="200dp"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="50dp"
-                        android:entries="@array/read_way"
+                        android:layout_marginLeft="50dp"
+                        android:entries="@array/readway"
                         >
                     </Spinner>
                 </LinearLayout>
@@ -151,12 +153,12 @@
                         android:layout_width="80dp"
                         android:layout_height="40dp"
                         android:text="分类："
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:textColor="@android:color/background_dark"
-                        android:gravity="end|center_vertical"
+                        android:gravity="right|center_vertical"
                         />
                     <TextView
-                        android:id="@+id/seen_classify"
+                        android:id="@+id/seen_classfy"
                         android:layout_width="200dp"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -172,7 +174,7 @@
                     android:layout_height="50dp"
                     android:background="@color/grgray"
                     android:text="完成记录"
-                    android:textSize="16sp"
+                    android:textSize="16dp"
                     android:textColor="#fff"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>

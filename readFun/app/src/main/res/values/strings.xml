@@ -15,7 +15,11 @@
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="search" translatable="false">search</string>
     <string name="scan" translatable="false">scan</string>
-    <string name="bookImage" translatable="false">BookImage</string>
+    <string name="bookimage" translatable="false">BookImage</string>
+    <string name="aboutUs" translatable="false">       BookShare主要为大学生积压的实体书籍的流通与再利用创造机会，为喜欢读书并喜欢分享的大学生提供一个良好的图书共享平台，不仅可以帮助大学生分享出已经阅读完的书籍，还能够帮助大学生找到自己喜欢的书籍。在此平台中，大学生可以分享自己阅读过的好书，也可以通过平台找到自己感兴趣的书籍，以较方便的方式得到高质量的书籍，满足自己的读书需求。</string>
+    <string name="history" translatable="false">历史</string>
+    <string name="want_to_read" translatable="false">想读</string>
+    <string name="reading" translatable="false">在读</string>
     <string name="seen" translatable="false">读过</string>
     <string name="book_summary" translatable="false">内容简介</string>
     <string name="split" translatable="false">分隔图片</string>
@@ -23,6 +27,12 @@
     <string name="login" translatable="false">登录</string>
     <string name="code" translatable="false">验证码</string>
     <string name="code_hide" translatable="false">请输入验证码</string>
+    <string name="SelectISBNInterface" translatable="false">http://139.199.123.55:8080/book/SelectIsbn.jsp</string>
+    <string name="douban_score" translatable="false">豆瓣评分</string>
+    <string name="WantReadInterface" translatable="false">http://139.199.123.55:8080/book/WantRead.jsp</string>
+    <string name="about_us" translatable="false">关于我们</string>
+    <string name="logo" translatable="false">LOGO</string>
+    <string name="contact_us" translatable="false">联系我们</string>
     <string name="NoteText" translatable="false">笔记：</string>
     <string name="reason" translatable="false">原因：</string>
     <string name="date" translatable="false">2019年11月19日</string>
@@ -30,14 +40,6 @@
     <string name="updateNote" translatable="false">更新进度</string>
     <string name="add_book" translatable="false">想读</string>
     <string name="readingText" translatable="false">在读</string>
-    <string name="book_list" translatable="false">书单</string>
-    <string name="bookRec" translatable="false">图书推荐</string>
-    <string name="want" translatable="false">想读</string>
-    <string name="todaySen" translatable="false">今日赏句</string>
-    <string name="readCount" translatable="false">阅读统计</string>
-    <string name="classify" translatable="false">点击选择图书分类</string>
-    <string name="finishCom" translatable="false">完成记录</string>
-    <string name="inputPlz" translatable="false">请输入内容</string>
-    <string name="bookName" translatable="false">书名</string>
-    <string name="expectation" translatable="false">期望：</string>
+
+
 </resources>

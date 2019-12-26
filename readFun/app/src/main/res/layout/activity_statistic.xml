@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.StatisticActivity"
+    tools:context=".presenter.activity.StatisticActivity"
     android:orientation="vertical">
 
 
@@ -15,13 +16,12 @@
             android:id="@+id/statistic_return"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@mipmap/return_button"/>
+            android:background="@mipmap/returnbutton"/>
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:src="@mipmap/vertical_line"
-            android:contentDescription="@null" />
+            android:src="@mipmap/verticalline" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,8 +38,8 @@
         android:id="@+id/sum_read"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingEnd="30dp"
-        android:paddingStart="50dp"
+
+        android:paddingLeft="80dp"
         android:text="总阅读量"
         android:textSize="24sp"/>
 
@@ -48,9 +48,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="阅读天数"
-            android:paddingEnd="30dp"
-            android:paddingStart="50dp"
-            android:layout_toEndOf="@id/sum_read"
+            android:paddingLeft="80dp"
+            android:layout_toRightOf="@id/sum_read"
             android:textSize="24sp"/>
 
     <TextView
@@ -59,8 +58,7 @@
         android:layout_height="wrap_content"
         android:text="0本"
         android:layout_marginTop="10dp"
-        android:paddingStart="70dp"
-        android:paddingEnd="10dp"
+        android:paddingLeft="80dp"
         android:layout_below="@+id/sum_read"
         android:textColor="@color/black"
         android:textSize="24sp"/>
@@ -69,11 +67,10 @@
         android:id="@+id/sum_days"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="70dp"
-        android:paddingEnd="10dp"
+        android:paddingLeft="80dp"
         android:text="0天"
         android:layout_marginTop="10dp"
-        android:layout_toEndOf="@id/sum_read"
+        android:layout_toRightOf="@id/sum_read"
         android:layout_below="@+id/sum_day"
         android:textColor="@color/black"
         android:textSize="24sp"/>
@@ -83,8 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/sum_book"
-        android:paddingEnd="30dp"
-        android:paddingStart="50dp"
+        android:paddingLeft="80dp"
         android:text="已读完"
         android:layout_marginTop="10dp"
         android:textSize="24sp"/>
@@ -93,11 +89,10 @@
             android:id="@+id/record"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingEnd="30dp"
-            android:paddingStart="50dp"
+            android:paddingLeft="80dp"
             android:text="记录书摘"
             android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/sum_read"
+            android:layout_toRightOf="@+id/sum_read"
             android:layout_below="@id/sum_days"
             android:textSize="24sp"/>
 
@@ -105,8 +100,7 @@
         android:id="@+id/seen_book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="70dp"
-        android:paddingEnd="10dp"
+        android:paddingLeft="80dp"
         android:text="0本"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/seen"
@@ -119,10 +113,9 @@
         android:layout_height="wrap_content"
         android:text="0条"
         android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/sum_read"
+        android:layout_toRightOf="@+id/sum_read"
         android:layout_below="@+id/record"
-        android:paddingStart="70dp"
-        android:paddingEnd="10dp"
+        android:paddingLeft="80dp"
         android:textColor="@color/black"
         android:textSize="24sp"/>
 

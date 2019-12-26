@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#fff"
-    tools:context=".activity.LoginActivity">
+    tools:context="com.yuyuereading.presenter.activity.LoginActivity">
 
     <LinearLayout
+        android:id="@+id/loginText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -21,6 +23,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/loginInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -37,6 +40,7 @@
             android:background="@drawable/bg_border">
 
             <TextView
+                android:id="@+id/chinaPhoneNumber"
                 android:layout_width="50dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="5dp"
@@ -46,7 +50,7 @@
                 android:layout_width="5dp"
                 android:layout_height="25dp"
                 android:gravity="center_vertical"
-                android:background="@mipmap/vertical_line"
+                android:background="@mipmap/verticalline"
                 android:contentDescription="@string/split" />
             <EditText
                 android:id="@+id/phoneNumber"
@@ -77,6 +81,7 @@
             android:background="@drawable/bg_border">
 
             <TextView
+                android:id="@+id/TextVerification"
                 android:layout_marginStart="5dp"
                 android:layout_width="50dp"
                 android:layout_height="25dp"
@@ -85,7 +90,7 @@
             <ImageView
                 android:layout_width="5dp"
                 android:layout_height="25dp"
-                android:background="@mipmap/vertical_line"
+                android:background="@mipmap/verticalline"
                 android:contentDescription="@string/split" />
             <EditText
                 android:id="@+id/verification"
