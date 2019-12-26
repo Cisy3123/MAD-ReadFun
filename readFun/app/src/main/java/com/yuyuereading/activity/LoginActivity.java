@@ -35,7 +35,7 @@ import cn.bmob.v3.listener.QueryListener;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Context mContext = LoginActivity.this;
+    private final Context mContext = LoginActivity.this;
     private EditText phoneNumber;
     private EditText verification;
     private Button delete;
@@ -216,7 +216,4 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 }

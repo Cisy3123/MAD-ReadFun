@@ -16,13 +16,18 @@ import com.yuyuereading.model.bean.BookComment;
 import com.yuyuereading.R;
 
 public class CommentActivity extends AppCompatActivity {
-    Button returnButton,editCom,finishEdit,delete;
+    private Button returnButton;
+    private Button editCom;
+    private Button finishEdit;
+    private Button delete;
 
-    TextView title,finishTime,pageUpdate;
+    private TextView title;
+    private TextView finishTime;
+    private TextView pageUpdate;
 
-    EditText readReview;
+    private EditText readReview;
 
-    ScrollView scrollView;
+    private ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

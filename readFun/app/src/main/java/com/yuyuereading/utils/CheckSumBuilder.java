@@ -2,7 +2,7 @@ package com.yuyuereading.utils;
 
 import java.security.MessageDigest;
 
-public class CheckSumBuilder {
+class CheckSumBuilder {
     // 计算并获取CheckSum
     public static String getCheckSum(String appSecret, String nonce, String curTime) {
         return encode("sha1", appSecret + nonce + curTime);

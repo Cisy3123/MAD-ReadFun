@@ -21,7 +21,7 @@ import java.util.List;
 public class CommentListAdapter extends RecyclerView.Adapter<CommentListAdapter.ViewHolder>{
     private Context mContext;
 
-    private List<BookComment> mBookCommentList;
+    private final List<BookComment> mBookCommentList;
 
     //构造方法
     public CommentListAdapter(List<BookComment> bookCommentList) {
@@ -64,10 +64,12 @@ public class CommentListAdapter extends RecyclerView.Adapter<CommentListAdapter.
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        CardView cardView;
-        View mItemView;
-        TextView read_review,page_update,finish_time;
-        public ViewHolder(View itemView) {
+        final CardView cardView;
+        final View mItemView;
+        final TextView read_review;
+        final TextView page_update;
+        final TextView finish_time;
+        ViewHolder(View itemView) {
             super(itemView);
             mItemView = itemView;
             cardView = (CardView) itemView;

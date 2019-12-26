@@ -66,13 +66,13 @@ public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener, WantFragment.OnFragmentInteractionListener
         , ReadingFragment.OnFragmentInteractionListener, SeenFragment.OnFragmentInteractionListener {
 
-    private Context mContext = MainActivity.this;
+    private final Context mContext = MainActivity.this;
     private long exitTime = 0;
     private Boolean bmob_if_have_book_info = false;
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private MaterialSearchView searchView;
-    private int REQUEST_CODE = 5;
+    private final int REQUEST_CODE = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,8 +86,6 @@ public class MainActivity extends AppCompatActivity implements
 
         initView();
         onClick();
-        displayList();
-        display();
         initShake();
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -114,16 +112,6 @@ public class MainActivity extends AppCompatActivity implements
                 startActivity(intent);
             }
         });
-    }
-
-    //显示其他信息
-    private void display() {
-
-    }
-
-    //显示列表
-    private void displayList() {
-
     }
 
     //点击事件
@@ -303,11 +291,6 @@ public class MainActivity extends AppCompatActivity implements
         return true;
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
     //处理二维码扫描结果
     @Override
     protected void onActivityResult(final int requestCode, int resultCode, Intent data) {
@@ -377,5 +360,10 @@ public class MainActivity extends AppCompatActivity implements
                 }
             }
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

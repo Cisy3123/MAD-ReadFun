@@ -5,7 +5,7 @@ import java.io.ByteArrayOutputStream;
 
 
 //本类提供将图片转化为字节数组存入数据库和将数据库中字节转化为图片的方法
-public class BitmapBytes {
+class BitmapBytes {
     public BitmapBytes()
     {
     }

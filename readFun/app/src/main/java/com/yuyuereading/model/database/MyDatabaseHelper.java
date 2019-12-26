@@ -17,7 +17,7 @@ import java.util.Map;
 
 
 class MyDatabaseHelper extends SQLiteOpenHelper {
-    private BitmapBytes bb;//Bitmap和byte格式相互转化的类
+    private final BitmapBytes bb;//Bitmap和byte格式相互转化的类
     public MyDatabaseHelper(Context context, String name,int version) {
         super(context, name, null, version);
         bb=new BitmapBytes();
