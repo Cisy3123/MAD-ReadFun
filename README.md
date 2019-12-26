@@ -13,7 +13,7 @@
 # 功能需求
 
 ## 用例图
-![usecase](https://github.com/Cisy3123/ReadFun/blob/master/png/%7D%7BSX%7D6QP%7B2U_ZCSYRT3GXCN.png)
+![usecase](https://github.com/Cisy3123/ReadFun/blob/master/png/1.png)
 
 完成情况：
 
@@ -51,25 +51,25 @@
 
 用户可以通过手机验证码登录。
 
-![登录](https://github.com/Cisy3123/ReadFun/blob/master/png/CV@LZOSQTNY[OC@(SFFSF]E.png)
+![登录](https://github.com/Cisy3123/ReadFun/blob/master/png/2.png)
 
 ### 录入书籍信息
 
 用户可以手动录入书籍信息。
 
-![录入](https://github.com/Cisy3123/ReadFun/blob/master/png/O)~WB7$V7K~KT6M4~T)3_6L.png)
+![录入](https://github.com/Cisy3123/ReadFun/blob/master/png/3.png)
 
 用户也可进行图书搜索。在输入框内输入书名关键字，可模糊搜索到书籍。
 
-![img](https://github.com/Cisy3123/ReadFun/blob/master/png/4{RVB)$M9V_9SV2%VO609AU.png)
+![img](https://github.com/Cisy3123/ReadFun/blob/master/png/4.png)
 
-![img](https://github.com/Cisy3123/ReadFun/blob/master/png/@X76FB7%)C@{5}M19HO6]`E.png)
+![img](https://github.com/Cisy3123/ReadFun/blob/master/png/5.png)
 
-![img](https://github.com/Cisy3123/ReadFun/blob/master/png/}WMZ)P}7R3@QDG4L2WQ44_L.png)
+![img](https://github.com/Cisy3123/ReadFun/blob/master/png/6.png)
 
 此处我们进行模拟数据的搜索。数据如下：
 
-![img](https://github.com/Cisy3123/ReadFun/blob/master/png/[5BF5K~}5ZEFZK~{B$JUT{R.png)
+![img](https://github.com/Cisy3123/ReadFun/blob/master/png/7.jpg)
 
 
 ### 管理阅读进度
