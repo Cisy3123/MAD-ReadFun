@@ -13,8 +13,7 @@
 # 功能需求
 
 ## 用例图
-
-![OIGN~N$~9LGM8H@ZKH`RZ(C](file:///C:\Users\ASUS-PC\AppData\Local\Temp\msohtmlclip1\01\clip_image002.jpg)
+![usecase](https://github.com/Cisy3123/ReadFun/blob/master/png/%7D%7BSX%7D6QP%7B2U_ZCSYRT3GXCN.png)
 
 完成情况：
 
