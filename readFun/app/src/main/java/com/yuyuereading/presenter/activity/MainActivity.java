@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements
                // progress.show();
                 //Snackbar.make(findViewById(R.id.container), "Query: " + query, Snackbar.LENGTH_LONG).show();
                 long userID=1;
-                HttpUtils.doGetAsy("http://139.196.36.97:8080/sbDemo/v1/read-management/titles?userid="+userID+"&keyword=" + query, new HttpUtils.CallBack() {
+                HttpUtils.doGetAsy("http://139.196.36.97:8080/sbDemo/v2/read-management/titles?userid="+userID+"&keyword=" + query, new HttpUtils.CallBack() {
                     @Override
                     public void onRequestComplete(String result) {
                         try {
